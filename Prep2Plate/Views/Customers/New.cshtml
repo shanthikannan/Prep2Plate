@@ -1,0 +1,24 @@
+﻿@model Prep2Plate.Models.Customers
+@{
+    ViewBag.Title = "Preferences";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3>Please enter your Preferences to continue.</h3>
+@using (Html.BeginForm("Create", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.FirstName)
+        
+        @Html.TextBoxFor(m => m.FirstName, new{ @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.LastName)
+        
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Diet)
+        @Html.TextBoxFor(m => m.Diet, new { @class = "form-control" })
+    </div>
+}
+

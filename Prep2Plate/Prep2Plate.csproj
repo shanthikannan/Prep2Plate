@@ -200,9 +200,22 @@
     <Compile Include="Migrations\201711140342096_InitialModel.Designer.cs">
       <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711141811081_AddDietPreference.cs" />
+    <Compile Include="Migrations\201711141811081_AddDietPreference.Designer.cs">
+      <DependentUpon>201711141811081_AddDietPreference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141813065_PopulateDietPreference.cs" />
+    <Compile Include="Migrations\201711141813065_PopulateDietPreference.Designer.cs">
+      <DependentUpon>201711141813065_PopulateDietPreference.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.cs" />
+    <Compile Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.Designer.cs">
+      <DependentUpon>201711141827585_AppliedAnnotationtoDietPreferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\DietPreference.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -265,6 +278,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
+    <Content Include="Views\Customers\New.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -285,6 +299,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711140342096_InitialModel.resx">
       <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141811081_AddDietPreference.resx">
+      <DependentUpon>201711141811081_AddDietPreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141813065_PopulateDietPreference.resx">
+      <DependentUpon>201711141813065_PopulateDietPreference.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.resx">
+      <DependentUpon>201711141827585_AppliedAnnotationtoDietPreferences.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

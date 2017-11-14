@@ -12,8 +12,15 @@ namespace Prep2Plate.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            var customer = new Customers() {id = 1, Diet = "Vegan", FirstName = "Prep2Plate"};
+            var customer = new Customers() {FirstName = "Hello! Welcome to Prep2Plate."};
             return View(customer);
         }
+
+        public ActionResult New()
+        {
+            //var DietPreference = _context.DietPreferences.ToList();
+            return View();
+        }
+        
     }
 }
