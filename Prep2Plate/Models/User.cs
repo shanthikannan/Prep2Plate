@@ -6,16 +6,16 @@ using System.Web;
 
 namespace Prep2Plate.Models
 {
-    public class Customers
+    public class User
     {
-        public byte Id { get; set; }
-        [Display(Name = "First Name")]
+        public int Id { get; set; }
+        [Required]
         public string FirstName { get; set; }
-        [Display(Name = "Last Name")]
+        [Required]
         public string LastName { get; set; }
-        [Display(Name = "Dietary Preferences" )]
+        [Required]
+        public string EmailId { get; set; }
+        [Required]
         public string Diet { get; set; }
-        public DietPreference DietPreference { get; set; }
-        public byte DietPreferenceId { get; set; }
     }
 }

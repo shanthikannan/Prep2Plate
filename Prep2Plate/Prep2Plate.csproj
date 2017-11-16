@@ -190,34 +190,25 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711140342096_InitialModel.cs" />
-    <Compile Include="Migrations\201711140342096_InitialModel.Designer.cs">
-      <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201711160018440_InitialModel.cs" />
+    <Compile Include="Migrations\201711160018440_InitialModel.Designer.cs">
+      <DependentUpon>201711160018440_InitialModel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711141811081_AddDietPreference.cs" />
-    <Compile Include="Migrations\201711141811081_AddDietPreference.Designer.cs">
-      <DependentUpon>201711141811081_AddDietPreference.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711141813065_PopulateDietPreference.cs" />
-    <Compile Include="Migrations\201711141813065_PopulateDietPreference.Designer.cs">
-      <DependentUpon>201711141813065_PopulateDietPreference.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.cs" />
-    <Compile Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.Designer.cs">
-      <DependentUpon>201711141827585_AppliedAnnotationtoDietPreferences.cs</DependentUpon>
+    <Compile Include="Migrations\201711160257118_ApplyAnnotationsToUser.cs" />
+    <Compile Include="Migrations\201711160257118_ApplyAnnotationsToUser.Designer.cs">
+      <DependentUpon>201711160257118_ApplyAnnotationsToUser.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\Customers.cs" />
-    <Compile Include="Models\DietPreference.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -277,8 +268,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Customers\New.cshtml" />
+    <Content Include="Views\User\UserDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -297,17 +287,11 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711140342096_InitialModel.resx">
-      <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711160018440_InitialModel.resx">
+      <DependentUpon>201711160018440_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711141811081_AddDietPreference.resx">
-      <DependentUpon>201711141811081_AddDietPreference.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711141813065_PopulateDietPreference.resx">
-      <DependentUpon>201711141813065_PopulateDietPreference.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711141827585_AppliedAnnotationtoDietPreferences.resx">
-      <DependentUpon>201711141827585_AppliedAnnotationtoDietPreferences.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711160257118_ApplyAnnotationsToUser.resx">
+      <DependentUpon>201711160257118_ApplyAnnotationsToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

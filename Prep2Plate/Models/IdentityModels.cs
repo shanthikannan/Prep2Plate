@@ -20,12 +20,13 @@ namespace Prep2Plate.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public DbSet<Customers> Customer { get; set; }
         //public DbSet<DietPreference> DietPreferences { get; set; }
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection", false)
         {
         }
+
+        public DbSet<User> Users { get; set; }
 
         public static ApplicationDbContext Create()
         {

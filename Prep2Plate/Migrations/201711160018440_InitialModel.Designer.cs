@@ -7,13 +7,13 @@ namespace Prep2Plate.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AppliedAnnotationtoDietPreferences : IMigrationMetadata
+    public sealed partial class InitialModel : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AppliedAnnotationtoDietPreferences));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711141827585_AppliedAnnotationtoDietPreferences"; }
+            get { return "201711160018440_InitialModel"; }
         }
         
         string IMigrationMetadata.Source
