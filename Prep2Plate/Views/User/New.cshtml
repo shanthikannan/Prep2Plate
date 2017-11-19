@@ -20,13 +20,15 @@
         @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
     </div>
     <div class=" form-group">
-        @Html.LabelFor(m => m.Diet)
-        @Html.TextBoxFor(m => m.Diet, new { @class = "form-control" })
-    </div>
-    <div class=" form-group">
         @Html.LabelFor(m => m.EmailId)
         @Html.TextBoxFor(m => m.EmailId, new { @class = "form-control" })
     </div>
+    <div class=" form-group">
+        @Html.LabelFor(m => m.Diet)
+        @Html.DropDownListFor(m => m.Diet, new SelectList(), "Select Diet type"{ @class = "form-control" })
+    </div>
+
+   <button type="submit" class="btn btn-primary">Save</button>
     
 }
 

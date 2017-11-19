@@ -23,7 +23,7 @@ namespace Prep2Plate.Controllers
 
         public ActionResult New()
         {
-            return View()
+            return View();
         }
 
         public ViewResult Index()
