@@ -15,6 +15,6 @@ namespace Prep2Plate.Context
             
         }
 
-        public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<RecipeSearchResult> RecipeSearchResults { get; set; }
     }
 }

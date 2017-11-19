@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Prep2Plate.Models
 {
-    public class Recipe
+    public class RecipeSearchResult
     {
         [Key]
         public string Id { get; set; }

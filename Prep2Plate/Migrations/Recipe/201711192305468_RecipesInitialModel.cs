@@ -8,7 +8,7 @@ namespace Prep2Plate.Migrations.Recipe
         public override void Up()
         {
             CreateTable(
-                "dbo.Recipes",
+                "dbo.RecipeSearchResults",
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
@@ -21,7 +21,7 @@ namespace Prep2Plate.Migrations.Recipe
         
         public override void Down()
         {
-            DropTable("dbo.Recipes");
+            DropTable("dbo.RecipeSearchResults");
         }
     }
 }
