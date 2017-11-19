@@ -9,11 +9,39 @@ namespace Prep2Plate.Controllers
 {
     public class UserController : Controller
     {
-        // GET: User/UserDetails
-        public ActionResult UserDetails()
+        private ApplicationDbContext _context;
+
+        public UserController()
         {
-            var user = new User();
+            _context = new ApplicationDbContext();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
+        public ActionResult New()
+        {
+            return View()
+        }
+
+        public ViewResult Index()
+        {
+            //calling users from db
+            var users = _context.Users.ToList();
+            return View(users);
+        }
+
+        // GET: User/UserDetails
+        public ActionResult UserDetails(int id)
+        {
+            var user = _context.Users.SingleOrDefault(c => c.Id == id);
+            if (user == null)
+                return HttpNotFound();
             return View(user);
+
+
         }
     }
 }
