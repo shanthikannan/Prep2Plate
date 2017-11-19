@@ -11,5 +11,13 @@ namespace Prep2Plate.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Diet { get; set; }
+
+        public PreferredShoppingDay PreferredShoppingDay { get; set; }
+
+        public PreferredCookingDay PreferredCookingDay { get; set; }
+
+        public MealsToPrep MealsToPrep { get; set; }
+
+
     }
 }
