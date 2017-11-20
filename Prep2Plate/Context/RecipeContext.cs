@@ -15,6 +15,12 @@ namespace Prep2Plate.Context
             
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            Database.SetInitializer<RecipeContext>(null);
+            base.OnModelCreating(modelBuilder);
+        }
+
         public DbSet<RecipeSearchResult> RecipeSearchResults { get; set; }
     }
 }
