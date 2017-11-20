@@ -20,7 +20,9 @@ namespace Prep2Plate.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        //DBset for Customers
         public DbSet<Customers> Customer { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

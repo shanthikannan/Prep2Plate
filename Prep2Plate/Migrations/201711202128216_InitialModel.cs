@@ -12,9 +12,13 @@ namespace Prep2Plate.Migrations
                 c => new
                     {
                         id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(),
-                        LastName = c.String(),
-                        Diet = c.String(),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
+                        EmailId = c.String(nullable: false),
+                        Diet = c.String(nullable: false),
+                        PreferredShoppingDay_Day = c.String(),
+                        PreferredCookingDay_Day = c.String(),
+                        MealsToPrep_Meal = c.String(),
                     })
                 .PrimaryKey(t => t.id);
             
