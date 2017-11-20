@@ -13,7 +13,7 @@ namespace Prep2Plate.Migrations.Recipe
         
         string IMigrationMetadata.Id
         {
-            get { return "201711192305468_RecipesInitialModel"; }
+            get { return "201711200047152_RecipesInitialModel"; }
         }
         
         string IMigrationMetadata.Source

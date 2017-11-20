@@ -202,9 +202,9 @@
       <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Recipe\201711192305468_RecipesInitialModel.cs" />
-    <Compile Include="Migrations\Recipe\201711192305468_RecipesInitialModel.Designer.cs">
-      <DependentUpon>201711192305468_RecipesInitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\Recipe\201711200047152_RecipesInitialModel.cs" />
+    <Compile Include="Migrations\Recipe\201711200047152_RecipesInitialModel.Designer.cs">
+      <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Recipe\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -298,8 +298,8 @@
     <EmbeddedResource Include="Migrations\201711140342096_InitialModel.resx">
       <DependentUpon>201711140342096_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Recipe\201711192305468_RecipesInitialModel.resx">
-      <DependentUpon>201711192305468_RecipesInitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Recipe\201711200047152_RecipesInitialModel.resx">
+      <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
