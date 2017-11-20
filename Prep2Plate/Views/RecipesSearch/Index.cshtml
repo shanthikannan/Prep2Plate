@@ -1,13 +1,22 @@
 ﻿@model IEnumerable<Prep2Plate.Models.RecipeSearchResult>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Search Recipes";
 }
 
-<h2>Index</h2>
+<h2>Search Recipes</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
+<!-- Add a Edit Box-->
+<!-- Add a Search button-->
+<!-- on click of the button | -->
+<input id="searchText" type="text" size="100" placeholder="Search Recipe" /> 
+<input type="button" value="Search" onclick="location.href='@Url.Action("OnSearchRecipe", "RecipesSearch")'" />
+   
+@*<input type="text" value="Search Recipe" onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'" />
+<button onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'"></button>*@
+
+@*<p>
+    @Html.ActionLink("Search Recipe", "Create")
 </p>
 <table class="table">
     <tr>
@@ -36,4 +45,4 @@
     </tr>
 }
 
-</table>
+</table>*@

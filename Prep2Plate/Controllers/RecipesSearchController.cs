@@ -36,6 +36,15 @@ namespace Prep2Plate.Controllers
             return View(recipeSearchResult);
         }
 
+        public ActionResult OnSearchRecipe()
+        {
+            //Get the value of the text field
+            //Make web api call
+            //Update View
+
+            return RedirectToAction("Index");
+        }
+
         // GET: RecipeSearchResults/Create
         public ActionResult Create()
         {
