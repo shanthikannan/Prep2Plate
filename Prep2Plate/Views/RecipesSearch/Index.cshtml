@@ -9,8 +9,9 @@
 <!-- Add a Edit Box-->
 <!-- Add a Search button-->
 <!-- on click of the button | -->
-<input id="searchText" type="text" size="100" placeholder="Search Recipe" /> 
-<input type="button" value="Search" onclick="location.href='@Url.Action("OnSearchRecipe", "RecipesSearch")'" />
+<input id="SearchText" type="text" size="100" placeholder="Search Recipe" /> 
+<input type="button" value="Search" onclick="location.href='@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#SearchText').val()" />
+
    
 @*<input type="text" value="Search Recipe" onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'" />
 <button onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'"></button>*@
