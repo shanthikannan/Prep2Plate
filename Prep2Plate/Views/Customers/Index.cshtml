@@ -5,5 +5,100 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.FirstName</h2>
+<h2>@Model.Diet</h2>
+
+@using (Html.BeginForm("Create", "Customers"))
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Diet)
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Vegetarian</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Pescetarian</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Vegan</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Kosher</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten-Free</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Dairy Free</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Allergies:</label>
+        @Html.TextBoxFor(p => p.Diet, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.PreferredShoppingDay)
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</label>
+    </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</label>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(p => p.PreferredCookingDay)
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</label>
+        </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</label>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.MealsToPrep)
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Prep!</button>
+}
+
+
 
