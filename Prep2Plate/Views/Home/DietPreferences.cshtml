@@ -1,0 +1,133 @@
+﻿@model Prep2Plate.Models.Customers
+@{
+    ViewBag.Title = "Diet Preferences";
+}
+<div class="text-center">
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+</div>
+<br />
+
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="text-center">
+    <div class="form-group">
+        @*@Html.LabelFor(p => p.Diet)*@
+        <label for="Diet">Please specify any dietary restrictions you may have:</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Vegetarian</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Pescetarian</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Vegan</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Kosher</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten-Free</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Dairy Free</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Allergies:</label>
+        @Html.TextBoxFor(p => p.Diet)
+    </div>
+        <br />
+        <br />
+        
+    
+    <div class="form-group">
+        <label for="PreferredShoppingDay">What are your preferred shopping days?</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</label>
+    </div>
+    <div class="btn btn-primary">
+        <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</label>
+    </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</label>
+        </div>
+        <br />
+        <br />
+        
+        <div class="form-group">
+            <label for="PreferredCookingDay">What are your preferred cooking days?</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</label>
+        </div>
+        <div class="btn btn-primary">
+            <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</label>
+        </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</label>
+            </div>
+        <br />
+        <br />
+
+            <div class="form-group">
+                @*@Html.LabelFor(p => p.MealsToPrep)*@
+                <label for="MealsToPrep">Which meals are you prepping for?</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</label>
+            </div>
+            <div class="btn btn-primary">
+                <label><input type="hidden" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</label>
+            </div>
+            <br />
+            <br />
+            <br />
+            <div class="btn btn-success">
+                <button type="submit">PREP!</button>
+            </div>
+            </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+
+
+
+
+
+
+
+

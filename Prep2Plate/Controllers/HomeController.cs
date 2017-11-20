@@ -13,9 +13,9 @@ namespace Prep2Plate.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult DietPreferences()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Set your preferences for the meals you would like to prepare weekly.";
 
             return View();
         }
@@ -24,6 +24,10 @@ namespace Prep2Plate.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult Create()
+        {
             return View();
         }
     }

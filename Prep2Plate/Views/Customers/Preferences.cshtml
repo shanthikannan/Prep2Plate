@@ -1,13 +1,7 @@
 ﻿@using Prep2Plate.Models
 @model Prep2Plate.Models.Customers
-@{
-    ViewBag.Title = "Index Page";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
 
-<h2>@Model.Diet</h2>
-
-@using (Html.BeginForm("Create", "Customers"))
+@using (Html.BeginForm("Create", "Home"))
 {
     <div class="form-group">
         @Html.LabelFor(p => p.Diet)
@@ -32,7 +26,7 @@
     </div>
     <div class="btn btn-primary">
         <label><input type="button" data-toggle="button" aria-pressed="false" autocomplete="off">Allergies:</label>
-        @Html.TextBoxFor(p => p.Diet, new { @class = "form-control" })
+        @*@Html.TextBoxFor(p => p.Diet, new { @class = "form-control" })*@
     </div>
     <div class="form-group">
         @Html.LabelFor(p => p.PreferredShoppingDay)
@@ -98,6 +92,10 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Prep!</button>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
 }
 
 
