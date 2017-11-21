@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<input id="btn" type="button" value="Call Data Api"/>
+<script>
+    $(document).ready(function() {
+        $("btn").change(function() {
+            $.ajax({
+                Url: "http://api.yummly.com/v1/api/recipes?_app_id=bf728886&_app_key=a1608c3e5cc021f4354aa6755f42c294&your_search_parameters",
+                Method: "Get",
+                success: function() {
+                    var t = "<Table>"
+                    for (var i = 0;i < result.length, i++)
+                }
+            })
+        })
+    })
+</script>
