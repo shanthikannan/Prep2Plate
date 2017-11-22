@@ -1,4 +1,5 @@
-﻿@model Prep2Plate.Models.RegisterViewModel
+﻿@using System.Runtime.ExceptionServices
+@model Prep2Plate.Models.RegisterViewModel
 @{
     ViewBag.Title = "Register";
 }
@@ -11,6 +12,21 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    //Added a view design for First and Last names    
+    <div class=" form-group">
+        @Html.LabelFor(m => m.FirstName)
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+    </div>
+        </div>
+
+    <div class=" form-group">
+        @Html.LabelFor(m => m.LastName)
+    <div class="col-md-10">
+        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+    </div>
+        </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">

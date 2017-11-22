@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.ExceptionServices;
 
 namespace Prep2Plate.Models
 {
@@ -48,6 +49,20 @@ namespace Prep2Plate.Models
 
     public class LoginViewModel
     {
+        //Added First and Last Name to the User Registration Fields.
+        //[Required]
+        //[Display(Name = "UserID")]
+        //public string Id { get; set; }
+
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
+
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
@@ -64,6 +79,16 @@ namespace Prep2Plate.Models
 
     public class RegisterViewModel
     {
+
+        //Added First and Last Name to the User Registration Fields.
+        [Required]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
