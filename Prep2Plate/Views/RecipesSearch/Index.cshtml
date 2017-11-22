@@ -8,20 +8,29 @@
 <!-- Add a Edit Box-->
 <!-- Add a Search button-->
 <!-- on click of the button | -->
-<input id="searchRecipe" type="text" name ="searchRecipe"size="100" placeholder="Search Recipe" /> 
-<input type="submit" value="Search" onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#searchRecipe').val()" />
-      <!-- onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#SearchText').val()"-->
+@*<script>
+    $(function(){
+        $("#Search").click(function(){
+            var link = $(this).attr("href");
+            link.replace("-1", $('#searchString').val());
+            var link = $(this).attr("href", link);
+        });
+    });​​​​
+</script>*@
 
-  
+
+<input id="searchRecipe" type="text" name ="searchRecipe"size="100" placeholder="Search Recipe" /> 
+<input id="Search" type="submit" value="Search" onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch", new { searchString = "chicken"})'" />
+@*<input type="submit" value="Search" onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#searchRecipe').val()" />*@
+
+
+
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipeName)
+        <th>Recipe Name
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </th>
-        <th></th>
+        <th>Image</th>
+        
     </tr>
 
 @foreach (var item in Model) {
@@ -30,9 +39,11 @@
             @Html.DisplayFor(modelItem => item.RecipeName)
         </td>
         <td>
-            <div>  
-                <img src="@Url.Content(@item.ImageUrl)"/>  
-            </div>  
+            <div>
+                <a href="@Url.Action("Index", "Home", new { id=item.Id })" class="thumbnail">
+                    <img src="@Url.Content(@item.ImageUrl)" />
+                </a>
+</div>  
         </td>
         @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
