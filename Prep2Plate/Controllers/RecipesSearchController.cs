@@ -26,7 +26,7 @@ namespace Prep2Plate.Controllers
         private string Baseurl = "http://api.yummly.com/v1/";
         private string requestUrl;
 
-        private List<RecipeSearchResult> GetDataFromYummyApiTask(string SearchString)
+        private bool GetDataFromYummyApiTask(string SearchString)
         {
             requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&" + SearchString;
             using (var client = new HttpClient())
@@ -43,7 +43,7 @@ namespace Prep2Plate.Controllers
                 //Checking the response is successful or not which is sent using HttpClient  
                 if (!htttpResult.IsSuccessStatusCode)
                 {
-                    return null;
+                    return false;
                 }
 
                 //Storing the response details recieved from web api   
@@ -52,17 +52,18 @@ namespace Prep2Plate.Controllers
                 IList<JToken> jTokenList = jObect["matches"].Children().ToList();
                 
                 // serialize JSON results into .NET objects
-                IList<RecipeSearchResult> recipeResults = new List<RecipeSearchResult>();
                 foreach(JToken jToken in jTokenList)
                 {
                     RecipeSearchResult recipeSearchResult = new RecipeSearchResult
                     {
+                        Id = jToken["id"].ToString(),
                         RecipeName = jToken["recipeName"].ToString(),
                         ImageUrl = jToken["imageUrlsBySize"]["90"].ToString()
                     };
-                    recipeResults.Add(recipeSearchResult);
+                    db.RecipeSearchResults.Add(recipeSearchResult);
                 }
-                return recipeResults.ToList();
+                db.SaveChanges();
+                return true;
                 //returning the employee list to view  
             }
         }
@@ -94,17 +95,21 @@ namespace Prep2Plate.Controllers
             //Make web api call
             //Update View
             recipeSearch = "chicken";
-            List<RecipeSearchResult> recipeSearchResults = new List<RecipeSearchResult>();
-            recipeSearchResults = GetDataFromYummyApiTask(recipeSearch);
-            if (recipeSearchResults == null)
+
+            foreach (var recipeSearchResult in db.RecipeSearchResults)
             {
-                return RedirectToAction("Create");
-                //Show Error Message
+                db.RecipeSearchResults.Remove(recipeSearchResult);
+            }
+            db.SaveChanges();
+            bool backendResult = GetDataFromYummyApiTask(recipeSearch);
+            if (backendResult)
+            {
+                return RedirectToAction("Index");
             }
             else
             {
-                var vm = recipeSearchResults[0];
-                return View(vm);
+                //Show Error Message
+                return RedirectToAction("Create");
             }
         }
 
