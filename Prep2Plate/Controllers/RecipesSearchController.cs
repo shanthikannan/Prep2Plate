@@ -19,16 +19,16 @@ namespace Prep2Plate.Controllers
     public class RecipesSearchController : Controller
     {
         private RecipeContext db = new RecipeContext();
-
+        
         ////Hosted web API REST Service base url  
         private string AppId = "bf728886";
         private string AppKey = "a1608c3e5cc021f4354aa6755f42c294";
         private string Baseurl = "http://api.yummly.com/v1/";
-        private string requestUrl;
+        private string _requestUrl;
 
-        private bool GetDataFromYummyApiTask(string SearchString)
+        private bool GetDataFromYummyApiTask(string searchString)
         {
-            requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&" + SearchString;
+            _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&requirePictures=true&q=" + searchString;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Baseurl);
@@ -36,7 +36,7 @@ namespace Prep2Plate.Controllers
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
-                var htttpResponse = client.GetAsync(requestUrl);
+                var htttpResponse = client.GetAsync(_requestUrl);
                 htttpResponse.Wait();
                 var htttpResult = htttpResponse.Result;
 
@@ -69,8 +69,12 @@ namespace Prep2Plate.Controllers
         }
 
         // GET: RecipeSearchResults
-        public ActionResult Index()
+        public ActionResult Index(int? id)
         {
+            if (!id.HasValue)
+            {
+                ClearDatabase();
+            }
             return View(db.RecipeSearchResults.ToList());
          }
 
@@ -89,22 +93,26 @@ namespace Prep2Plate.Controllers
             return View(recipeSearchResult);
         }
 
+        private void ClearDatabase()
+        {
+            foreach (var recipeSearchResult in db.RecipeSearchResults)
+            {
+                db.RecipeSearchResults.Remove(recipeSearchResult);
+            }
+            db.SaveChanges();
+        }
+
         public ActionResult OnSearchRecipe(string recipeSearch)
         {
             //Get the value of the text field
             //Make web api call
             //Update View
             recipeSearch = "chicken";
-
-            foreach (var recipeSearchResult in db.RecipeSearchResults)
-            {
-                db.RecipeSearchResults.Remove(recipeSearchResult);
-            }
-            db.SaveChanges();
+            ClearDatabase();
             bool backendResult = GetDataFromYummyApiTask(recipeSearch);
             if (backendResult)
             {
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { id = -1 });
             }
             else
             {
