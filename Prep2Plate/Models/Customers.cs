@@ -18,11 +18,7 @@ namespace Prep2Plate.Models
         [Display (Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display (Name = "Email Address")]
-        public string EmailId { get; set; }
-
-        [Required]
+       [Required]
         [Display (Name = "Please Select your Dietry Preferences")]
         public string Diet { get; set; }
 
