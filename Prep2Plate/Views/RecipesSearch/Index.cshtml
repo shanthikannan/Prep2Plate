@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Prep2Plate.Models.RecipeSearchResult>
+
+@{
+    ViewBag.Title = "Search Recipes";
+}
+
+<h2>Search Recipes</h2>
+
+<!-- Add a Edit Box-->
+<!-- Add a Search button-->
+<!-- on click of the button | -->
+<input id="SearchText" type="text" size="100" placeholder="Search Recipe" /> 
+<input type="button" value="Search" onclick="location.href='@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#SearchText').val()" />
+
+   
+@*<input type="text" value="Search Recipe" onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'" />
+<button onclick="location.href='@Url.Action("RecipeSearchResult", " RecipesSearchController")'"></button>*@
+
+@*<p>
+    @Html.ActionLink("Search Recipe", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageUrl)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RecipeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageUrl)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RecipeName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>*@
