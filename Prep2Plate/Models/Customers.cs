@@ -8,16 +8,9 @@ namespace Prep2Plate.Models
 {
     public class Customers
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
-        [Required]
-        [Display (Name = "First Name")]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Display (Name = "Last Name")]
-        public string LastName { get; set; }
-
+        
        [Required]
         [Display (Name = "Please Select your Dietry Preferences")]
         public string Diet { get; set; }
