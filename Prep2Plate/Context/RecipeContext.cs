@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -12,7 +12,7 @@ namespace Prep2Plate.Context
         public RecipeContext()
             : base("DefaultConnection")
         {
-            
+
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
