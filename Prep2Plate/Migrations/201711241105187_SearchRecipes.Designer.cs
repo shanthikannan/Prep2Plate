@@ -7,13 +7,13 @@ namespace Prep2Plate.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class InitialModel : IMigrationMetadata
+    public sealed partial class SearchRecipes : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialModel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(SearchRecipes));
         
         string IMigrationMetadata.Id
         {
-            get { return "201711202128216_InitialModel"; }
+            get { return "201711241105187_SearchRecipes"; }
         }
         
         string IMigrationMetadata.Source

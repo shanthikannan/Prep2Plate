@@ -3,7 +3,7 @@ namespace Prep2Plate.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialModel : DbMigration
+    public partial class InitialModelCustomers : DbMigration
     {
         public override void Up()
         {
@@ -11,16 +11,13 @@ namespace Prep2Plate.Migrations
                 "dbo.Customers",
                 c => new
                     {
-                        id = c.Int(nullable: false, identity: true),
-                        FirstName = c.String(nullable: false),
-                        LastName = c.String(nullable: false),
-                        EmailId = c.String(nullable: false),
+                        Id = c.Int(nullable: false, identity: true),
                         Diet = c.String(nullable: false),
                         PreferredShoppingDay_Day = c.String(),
                         PreferredCookingDay_Day = c.String(),
                         MealsToPrep_Meal = c.String(),
                     })
-                .PrimaryKey(t => t.id);
+                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -50,6 +47,8 @@ namespace Prep2Plate.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
+                        FirstName = c.String(nullable: false),
+                        LastName = c.String(nullable: false),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
