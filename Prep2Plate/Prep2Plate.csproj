@@ -222,6 +222,7 @@
     <Content Include="Content\bootstrap-flatly.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Docs\Migration.txt" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -302,7 +303,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711202128216_InitialModel.resx">
       <DependentUpon>201711202128216_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>   
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Recipe\201711200047152_RecipesInitialModel.resx">
       <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
     </EmbeddedResource>

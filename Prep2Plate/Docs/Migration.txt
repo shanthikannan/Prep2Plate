@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName RecipeContext -MigrationsDirectory Migrations\Recipe
+
+add-migration -ConfigurationTypeName Prep2Plate.Migrations.Recipe.Configuration "RecipesInitialModel"
+
+update-database -ConfigurationTypeName Prep2Plate.Migrations.Recipe.Configuration
