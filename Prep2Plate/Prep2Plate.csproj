@@ -251,7 +251,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Preferences.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -302,7 +302,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711202128216_InitialModel.resx">
       <DependentUpon>201711202128216_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>   
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Recipe\201711200047152_RecipesInitialModel.resx">
       <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
     </EmbeddedResource>
