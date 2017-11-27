@@ -8,22 +8,10 @@
 <!-- Add a Edit Box-->
 <!-- Add a Search button-->
 <!-- on click of the button | -->
-@*<script>
-    $(function(){
-        $("#Search").click(function(){
-            var link = $(this).attr("href");
-            link.replace("-1", $('#searchString').val());
-            var link = $(this).attr("href", link);
-        });
-    });​​​​
-</script>*@
-
-
-<input id="searchRecipe" type="text" name ="searchRecipe"size="100" placeholder="Search Recipe" /> 
-<input id="Search" type="submit" value="Search" onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch", new { searchString = "chicken"})'" />
-@*<input type="submit" value="Search" onclick="location.href = '@Url.Action("OnSearchRecipe", "RecipesSearch")?id=' + $('#searchRecipe').val()" />*@
-
-
+@using (Html.BeginForm("OnSearchRecipe", "RecipesSearch")) {
+    <input id="searchRecipe" type="text" name ="searchRecipe" size="100" placeholder="Search Recipe" /> 
+    <input id="Search" type="submit" value="Search"/>
+}
 
 <table class="table">
     <tr>

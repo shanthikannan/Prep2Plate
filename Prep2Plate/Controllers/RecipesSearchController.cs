@@ -102,13 +102,13 @@ namespace Prep2Plate.Controllers
             db.SaveChanges();
         }
 
-        public ActionResult OnSearchRecipe(string searchString)
+        public ActionResult OnSearchRecipe(string searchRecipe)
         {
             //Get the value of the text field
             //Make web api call
             //Update View
             ClearDatabase();
-            bool backendResult = GetDataFromYummyApiTask(searchString);
+            bool backendResult = GetDataFromYummyApiTask(searchRecipe);
             if (backendResult)
             {
                 return RedirectToAction("Index", new { id = -1 });
