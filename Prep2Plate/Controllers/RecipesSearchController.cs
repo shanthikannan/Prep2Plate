@@ -58,7 +58,8 @@ namespace Prep2Plate.Controllers
                     {
                         Id = jToken["id"].ToString(),
                         RecipeName = jToken["recipeName"].ToString(),
-                        ImageUrl = jToken["imageUrlsBySize"]["90"].ToString()
+                        ImageUrl = jToken["imageUrlsBySize"]["90"].ToString(),
+                        Ingredients = jToken["ingredients"].ToString()
                     };
                     db.RecipeSearchResults.Add(recipeSearchResult);
                 }

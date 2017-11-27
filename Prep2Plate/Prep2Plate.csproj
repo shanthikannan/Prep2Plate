@@ -19,10 +19,10 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>44340</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -202,9 +202,9 @@
       <DependentUpon>201711202128216_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Recipe\201711200047152_RecipesInitialModel.cs" />
-    <Compile Include="Migrations\Recipe\201711200047152_RecipesInitialModel.Designer.cs">
-      <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.cs" />
+    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.Designer.cs">
+      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Recipe\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -219,6 +219,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
+      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-flatly.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -283,7 +287,6 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -302,9 +305,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201711202128216_InitialModel.resx">
       <DependentUpon>201711202128216_InitialModel.cs</DependentUpon>
-    </EmbeddedResource>   
-    <EmbeddedResource Include="Migrations\Recipe\201711200047152_RecipesInitialModel.resx">
-      <DependentUpon>201711200047152_RecipesInitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Recipe\201711270056509_AddingIngredients.resx">
+      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
