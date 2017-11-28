@@ -1,11 +1,8 @@
 ﻿@model Prep2Plate.Models.RecipeSearchResult
-
 @{
     ViewBag.Title = "Delete";
 }
-
 <h2>Delete</h2>
-
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Recipe</h4>
@@ -14,22 +11,18 @@
         <dt>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.ImageUrl)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.RecipeName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.RecipeName)
         </dd>
-
     </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

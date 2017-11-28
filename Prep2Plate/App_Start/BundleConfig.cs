@@ -24,7 +24,7 @@ namespace Prep2Plate
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap-lumen.css",
+                      "~/Content/bootstrap.css",
                       "~/Content/site.css"));
         }
     }

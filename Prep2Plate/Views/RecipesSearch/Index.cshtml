@@ -33,24 +33,24 @@
         
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipeName)
-        </td>
-        <td>
-            <div>
-                <a href="@Url.Action("Index", "Home", new { id=item.Id })" class="thumbnail">
-                    <img src="@Url.Content(@item.ImageUrl)" />
-                </a>
-</div>  
-        </td>
-        @*<td>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipeName)
+            </td>
+            <td>
+                <div>
+                    <a href="@Url.Action("Index", "Home", new { id=item.Id })" class="thumbnail">
+                        <img src="@Url.Content(@item.ImageUrl)" />
+                    </a>
+                </div>  
+            </td>
+            @*<td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>*@
-    </tr>
-}
+        </tr>
+    }
 
 </table>
