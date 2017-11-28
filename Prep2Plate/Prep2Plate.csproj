@@ -201,15 +201,11 @@
     <Compile Include="Migrations\201711241100106_InitialModelCustomers.Designer.cs">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711241105187_SearchRecipes.cs" />
-    <Compile Include="Migrations\201711241105187_SearchRecipes.Designer.cs">
-      <DependentUpon>201711241105187_SearchRecipes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711241112074_SearchRecipes1.cs" />
-    <Compile Include="Migrations\201711241112074_SearchRecipes1.Designer.cs">
-      <DependentUpon>201711241112074_SearchRecipes1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.cs" />
+    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.Designer.cs">
+      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -223,6 +219,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
+      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -278,16 +278,12 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\RecipesSearch\Create.cshtml" />
-    <Content Include="Views\RecipesSearch\Delete.cshtml" />
     <Content Include="Views\RecipesSearch\Details.cshtml" />
-    <Content Include="Views\RecipesSearch\Edit.cshtml" />
     <Content Include="Views\RecipesSearch\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\Preferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -307,11 +303,8 @@
     <EmbeddedResource Include="Migrations\201711241100106_InitialModelCustomers.resx">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241105187_SearchRecipes.resx">
-      <DependentUpon>201711241105187_SearchRecipes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711241112074_SearchRecipes1.resx">
-      <DependentUpon>201711241112074_SearchRecipes1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Recipe\201711270056509_AddingIngredients.resx">
+      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
