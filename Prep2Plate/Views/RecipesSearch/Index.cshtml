@@ -15,30 +15,21 @@
 
 <table class="table">
     <tr>
-        <th>Recipe Name
-        </th>
+        <th>Recipe Name</th>
         <th>Image</th>
-        
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipeName)
-        </td>
-        <td>
-            <div>
+   
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.RecipeName.ToString()
+            </td>
+            <td>
                 <a href="@Url.Action("Details", "RecipesSearch", new { id=item.Id })" class="thumbnail">
                     <img src="@Url.Content(@item.ImageUrl)" />
                 </a>
-</div>  
-        </td>
-        @*<td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>*@
-    </tr>
-}
+            </td>
+        </tr>
+    }
 
 </table>
