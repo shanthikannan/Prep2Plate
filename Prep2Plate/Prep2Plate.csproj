@@ -202,10 +202,11 @@
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.cs" />
-    <Compile Include="Migrations\Recipe\201711270056509_AddingIngredients.Designer.cs">
-      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
+    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.cs" />
+    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.Designer.cs">
+      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Recipe\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -219,10 +220,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-lumen.css" />
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
-      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -284,6 +281,7 @@
     <Content Include="Views\Home\Preferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -303,8 +301,8 @@
     <EmbeddedResource Include="Migrations\201711241100106_InitialModelCustomers.resx">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Recipe\201711270056509_AddingIngredients.resx">
-      <DependentUpon>201711270056509_AddingIngredients.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Recipe\201711280311489_AddingIngredients.resx">
+      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
