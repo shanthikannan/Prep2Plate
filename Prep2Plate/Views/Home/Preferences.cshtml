@@ -1,0 +1,104 @@
+﻿@model Prep2Plate.Models.Customers
+@{
+    ViewBag.Title = "Preferences";
+}
+<div class="text-center">
+    <h2>@ViewBag.Title.</h2>
+    <h3>@ViewBag.Message</h3>
+</div>
+<br />
+@*<a href="~/Views/Account/ExternalLoginFailure.cshtml">~/Views/Account/ExternalLoginFailure.cshtml</a>*@
+@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="text-center">
+        <div class="form-group">
+            @*@Html.LabelFor(p => p.Diet)*@
+            <label for="Diet">Please select your dietary preferences:</label>
+        </div>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">Vegetarian</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Pescetarian</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Vegan</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Kosher</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten - Free</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dairy Free</button>
+
+        <br />
+        <br />
+        <div class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <button class="btn btn-primary">Allergies:</button>
+            @Html.TextBoxFor(p => p.Diet)
+        </div>
+        <br />
+        <br />
+
+
+        @*<div class="form-group">
+                <label for="PreferredShoppingDay">What are your preferred shopping days?</label>
+            </div>
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</button>
+
+            <br />
+            <br />
+
+            <div class="form-group">
+                <label for="PreferredCookingDay">What are your preferred cooking days?</label>
+            </div>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Sunday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Monday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Tuesday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Wednesday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Thursday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Friday</button>
+
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Saturday</button>
+
+            <br />
+            <br />*@
+
+        <div class="form-group">
+            @*@Html.LabelFor(p => p.MealsToPrep)*@
+            <label for="MealsToPrep">Which meals are you prepping for?</label>
+        </div>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>
+
+        <br />
+        <br />
+        <br />
+        <div class="btn-default">
+            <button class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
