@@ -13,6 +13,13 @@ namespace Prep2Plate.Controllers
             return View();
         }
 
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
         public ActionResult Preferences()
         {
             ViewBag.Message = "Select your dietary preferences.";
