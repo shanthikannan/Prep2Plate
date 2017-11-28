@@ -24,9 +24,10 @@ namespace Prep2Plate.Controllers
         private string AppKey = "a1608c3e5cc021f4354aa6755f42c294";
         private string Baseurl = "http://api.yummly.com/v1/";
         private string _requestUrl;
-       
+
         // Function called before the Page is loaded
-        public ActionResult Index(int? id) // Optional Parameter id. id will be null if not passed from the calling location.
+        // Optional Parameter id. id will be null if not passed from the calling location.
+        public ActionResult Index(int? id) 
         {
             if (id.HasValue)//if id has value, do nothing. 
             {
