@@ -201,14 +201,6 @@
     <Compile Include="Migrations\201711241100106_InitialModelCustomers.Designer.cs">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711241105187_SearchRecipes.cs" />
-    <Compile Include="Migrations\201711241105187_SearchRecipes.Designer.cs">
-      <DependentUpon>201711241105187_SearchRecipes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711241112074_SearchRecipes1.cs" />
-    <Compile Include="Migrations\201711241112074_SearchRecipes1.Designer.cs">
-      <DependentUpon>201711241112074_SearchRecipes1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.cs" />
     <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.Designer.cs">
       <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
