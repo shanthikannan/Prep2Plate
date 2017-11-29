@@ -16,7 +16,7 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class RecipesSearchController : Controller
     {
         private RecipeContext db = new RecipeContext();        
@@ -24,7 +24,6 @@ namespace Prep2Plate.Controllers
         private string AppId = "bf728886";
         private string AppKey = "a1608c3e5cc021f4354aa6755f42c294";
         private string Baseurl = "http://api.yummly.com/v1/";
-        private string _requestUrl;
 
         // Function called before the Page is loaded
         public ActionResult Index(int? id)
@@ -40,8 +39,10 @@ namespace Prep2Plate.Controllers
         public ActionResult OnSearchRecipe(string searchRecipe)
         {
             ClearDatabase();
-            bool backendResult = GetDataFromYummyApiTask(searchRecipe);
-            if (backendResult)
+            string _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&requirePictures=true&q=" + searchRecipe;
+            string httpResponse = CallYumlyApi(_requestUrl);
+            bool result = ParseSearchResultsResponseAndStoreInDb(httpResponse);
+            if (result)
             {
                 return RedirectToAction("Index", new { id = -1 });
             }
@@ -52,9 +53,8 @@ namespace Prep2Plate.Controllers
             }
         }
 
-        private bool GetDataFromYummyApiTask(string searchString)
+        private string CallYumlyApi(string requestUrl)
         {
-            _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&requirePictures=true&q=" + searchString;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(Baseurl);
@@ -63,44 +63,58 @@ namespace Prep2Plate.Controllers
                 try
                 {
                     //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
-                    var htttpResponse = client.GetAsync(_requestUrl);
+                    var htttpResponse = client.GetAsync(requestUrl);
                     htttpResponse.Wait();
                     var htttpResult = htttpResponse.Result;
 
                     //Checking the response is successful or not which is sent using HttpClient  
                     if (!htttpResult.IsSuccessStatusCode)
                     {
-                        return false;
+                        return null;
                     }
-
-                    //Storing the response details recieved from web api   
-                    string strResponse = htttpResult.Content.ReadAsStringAsync().Result;
-                    JObject jObect = JObject.Parse(strResponse);
-                    IList<JToken> jTokenList = jObect["matches"].Children().ToList();
-                
-                    // serialize JSON results into .NET objects
-                    foreach(JToken jToken in jTokenList)
-                    {
-                        RecipeSearchResult recipeSearchResult = new RecipeSearchResult
-                        {
-                            Id = jToken["id"].ToString(),
-                            RecipeName = jToken["recipeName"].ToString(),
-                            ImageUrl = jToken["imageUrlsBySize"]["90"].ToString(),
-                            Ingredients = jToken["ingredients"].ToString()
-                        };
-                        db.RecipeSearchResults.Add(recipeSearchResult);
-                    }
-                    db.SaveChanges();
-                    return true;
-                        //returning the employee list to view  
+                    return htttpResult.Content.ReadAsStringAsync().Result;
                 }
                 catch (Exception)
                 {
-                    return false;
+                    return null;
                 }
 
             }
         }
+
+        private bool ParseSearchResultsResponseAndStoreInDb(string httpResponse)
+        {
+            if (httpResponse == null)
+            {
+                return false;
+            }
+            JObject jObect = JObject.Parse(httpResponse);
+            IList<JToken> jTokenList = jObect["matches"].Children().ToList();
+                
+            // serialize JSON results into .NET objects
+            foreach(JToken jToken in jTokenList)
+            {
+                RecipeSearchResult recipeSearchResult = new RecipeSearchResult
+                {
+                    Id = jToken["id"].ToString(),
+                    RecipeName = jToken["recipeName"].ToString(),
+                    ImageUrl = jToken["imageUrlsBySize"]["90"].ToString()
+                };
+                db.RecipeSearchResults.Add(recipeSearchResult);
+            }
+            db.SaveChanges();
+            return true;
+        }
+
+        private bool ParseGetResultsResponseAndUpdateInDb(string httpResponse, RecipeSearchResult recipeSearchResult)
+        {
+            JObject jObect = JObject.Parse(httpResponse);
+            recipeSearchResult.Ingredients = jObect["ingredientLines"].ToString();
+            //Get the sourceRecipeUrl and store it in the model
+            db.SaveChanges();
+            return false;
+        }
+
 
         // GET: RecipeSearchResults/Details/5
         public ActionResult Details(string id)
@@ -109,10 +123,17 @@ namespace Prep2Plate.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             RecipeSearchResult recipeSearchResult = db.RecipeSearchResults.Find(id);
             if (recipeSearchResult == null)
             {
                 return HttpNotFound();
+            }
+            if (recipeSearchResult.Ingredients == null)
+            {
+                string _requestUrl = "api/recipe/" + recipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
+                string httpResponse = CallYumlyApi(_requestUrl);
+                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, recipeSearchResult);
             }
             return View(recipeSearchResult);
         }

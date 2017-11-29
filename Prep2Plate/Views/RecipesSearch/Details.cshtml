@@ -25,11 +25,13 @@
         var items = Json.Decode(Model.Ingredients); 
     }
     <ul>
-    @foreach (var item in items)
-    {
-        <li>@item.ToString()</li>
-    }    
+        @foreach (var item in items)
+        {
+            <li>@item.ToString()</li>
+        }    
     </ul>
+    
+    @*add an anchor item that says "Click here for Details" and on clicking that link should take the user to that website*@
 </div>
 
 <p>

@@ -232,10 +232,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
-      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -298,6 +294,7 @@
     <Content Include="Views\Home\Preferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
