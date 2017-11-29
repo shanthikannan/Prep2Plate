@@ -201,6 +201,22 @@
     <Compile Include="Migrations\201711241100106_InitialModelCustomers.Designer.cs">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711241105187_SearchRecipes.cs" />
+    <Compile Include="Migrations\201711241105187_SearchRecipes.Designer.cs">
+      <DependentUpon>201711241105187_SearchRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711241112074_SearchRecipes1.cs" />
+    <Compile Include="Migrations\201711241112074_SearchRecipes1.Designer.cs">
+      <DependentUpon>201711241112074_SearchRecipes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.cs" />
+    <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.Designer.cs">
+      <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.cs" />
+    <Compile Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.Designer.cs">
+      <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.cs" />
     <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.Designer.cs">
@@ -282,7 +298,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -303,6 +318,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\Recipe\201711280311489_AddingIngredients.resx">
       <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711281727164_RemovedFirstandLastNames.resx">
+      <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.resx">
+      <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
