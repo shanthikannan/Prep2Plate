@@ -16,6 +16,7 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
+    [Authorize]
     public class RecipesSearchController : Controller
     {
         private RecipeContext db = new RecipeContext();        
@@ -24,7 +25,7 @@ namespace Prep2Plate.Controllers
         private string AppKey = "a1608c3e5cc021f4354aa6755f42c294";
         private string Baseurl = "http://api.yummly.com/v1/";
         private string _requestUrl;
-       
+
         // Function called before the Page is loaded
         public ActionResult Index(int? id)
         {
@@ -136,6 +137,7 @@ namespace Prep2Plate.Controllers
         
         public ActionResult SaveRecipe()
         {
+            Console.WriteLine(User.Identity.Name);
             return RedirectToAction("Index", new { id = -1 });
         }
     }

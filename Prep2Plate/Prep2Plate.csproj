@@ -215,6 +215,11 @@
       <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Recipe\Configuration.cs" />
+    <Compile Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.cs" />
+    <Compile Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.Designer.cs">
+      <DependentUpon>201711290416511_UsersAndRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\UserMgmt\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -320,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.resx">
       <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.resx">
+      <DependentUpon>201711290416511_UsersAndRecipes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
