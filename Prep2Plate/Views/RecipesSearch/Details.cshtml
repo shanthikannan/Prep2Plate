@@ -30,12 +30,11 @@
             <li>@item.ToString()</li>
         }    
     </ul>
-    
+    <a href="@Model.RecipeSourceUrl"> </a>
     @*add an anchor item that says "Click here for Details" and on clicking that link should take the user to that website*@
 </div>
 
 <p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
     @Html.ActionLink("Back to List", "Index", new {id = -1})
 </p>
 

@@ -106,11 +106,12 @@ namespace Prep2Plate.Controllers
             return true;
         }
 
-        private bool ParseGetResultsResponseAndUpdateInDb(string httpResponse, RecipeSearchResult recipeSearchResult)
+        public bool ParseGetResultsResponseAndUpdateInDb(string httpResponse, RecipeSearchResult recipeSearchResult)
         {
             JObject jObect = JObject.Parse(httpResponse);
             recipeSearchResult.Ingredients = jObect["ingredientLines"].ToString();
             //Get the sourceRecipeUrl and store it in the model
+            recipeSearchResult.RecipeSourceUrl = jObect["recipeSourceUrl"].ToString();
             db.SaveChanges();
             return false;
         }
