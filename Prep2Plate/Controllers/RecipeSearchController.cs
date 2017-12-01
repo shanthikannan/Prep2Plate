@@ -16,7 +16,7 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
-   // [Authorize]
+    //[Authorize]
     public class RecipesSearchController : Controller
     {
         private RecipeContext db = new RecipeContext();        
@@ -111,7 +111,7 @@ namespace Prep2Plate.Controllers
             JObject jObect = JObject.Parse(httpResponse);
             recipeSearchResult.Ingredients = jObect["ingredientLines"].ToString();
             //Get the sourceRecipeUrl and store it in the model
-            recipeSearchResult.RecipeSourceUrl = jObect["recipeSourceUrl"].ToString();
+            recipeSearchResult.RecipeSourceUrl = jObect["source"]["sourceRecipeUrl"].ToString();
             db.SaveChanges();
             return false;
         }

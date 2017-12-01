@@ -210,9 +210,9 @@
       <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.cs" />
-    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.Designer.cs">
-      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
+    <Compile Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.cs" />
+    <Compile Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.Designer.cs">
+      <DependentUpon>201712010302269_AddingRecipeSourceUrl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Recipe\Configuration.cs" />
     <Compile Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.cs" />
@@ -232,6 +232,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
+      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -294,7 +298,6 @@
     <Content Include="Views\Home\Preferences.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -314,14 +317,14 @@
     <EmbeddedResource Include="Migrations\201711241100106_InitialModelCustomers.resx">
       <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Recipe\201711280311489_AddingIngredients.resx">
-      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711281727164_RemovedFirstandLastNames.resx">
       <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.resx">
       <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.resx">
+      <DependentUpon>201712010302269_AddingRecipeSourceUrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.resx">
       <DependentUpon>201711290416511_UsersAndRecipes.cs</DependentUpon>
