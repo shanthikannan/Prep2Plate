@@ -20,9 +20,12 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44340</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>
+    </IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>
+    </IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>
+    </IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -197,16 +200,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711241100106_InitialModelCustomers.cs" />
-    <Compile Include="Migrations\201711241100106_InitialModelCustomers.Designer.cs">
-      <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
+    <Compile Include="Migrations\201712011621559_InitialModel.cs" />
+    <Compile Include="Migrations\201712011621559_InitialModel.Designer.cs">
+      <DependentUpon>201712011621559_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011627591_AddRecipeSearchResults.cs" />
+    <Compile Include="Migrations\201712011627591_AddRecipeSearchResults.Designer.cs">
+      <DependentUpon>201712011627591_AddRecipeSearchResults.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712011634160_AddFirstAndLastNames.cs" />
+    <Compile Include="Migrations\201712011634160_AddFirstAndLastNames.Designer.cs">
+      <DependentUpon>201712011634160_AddFirstAndLastNames.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.cs" />
-    <Compile Include="Migrations\Recipe\201711280311489_AddingIngredients.Designer.cs">
-      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Recipe\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -219,7 +225,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -298,11 +303,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201711241100106_InitialModelCustomers.resx">
-      <DependentUpon>201711241100106_InitialModelCustomers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712011621559_InitialModel.resx">
+      <DependentUpon>201712011621559_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\Recipe\201711280311489_AddingIngredients.resx">
-      <DependentUpon>201711280311489_AddingIngredients.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712011627591_AddRecipeSearchResults.resx">
+      <DependentUpon>201712011627591_AddRecipeSearchResults.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712011634160_AddFirstAndLastNames.resx">
+      <DependentUpon>201712011634160_AddFirstAndLastNames.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
