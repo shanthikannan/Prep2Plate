@@ -228,13 +228,14 @@
     <Compile Include="Models\PreferredCookingDay.cs" />
     <Compile Include="Models\PreferredShoppingDay.cs" />
     <Compile Include="Models\RecipeSearchResult.cs" />
+    <Compile Include="Models\UserRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
-    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
-      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
+    <Content Include="App_Data\PREP2PLATE.mdf" />
+    <Content Include="App_Data\PREP2PLATE_log.ldf">
+      <DependentUpon>PREP2PLATE.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />

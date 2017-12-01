@@ -27,6 +27,7 @@ namespace Prep2Plate.Migrations.UserMgmt
                         ImageUrl = c.String(),
                         RecipeName = c.String(),
                         Ingredients = c.String(),
+                        RecipeSourceUrl = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             

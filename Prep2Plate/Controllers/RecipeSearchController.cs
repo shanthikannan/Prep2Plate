@@ -9,6 +9,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prep2Plate.Context;
@@ -16,7 +17,7 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class RecipesSearchController : Controller
     {
         private RecipeContext db = new RecipeContext();        
