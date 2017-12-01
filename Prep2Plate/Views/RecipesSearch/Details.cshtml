@@ -36,8 +36,9 @@
     @*add an anchor item that says "Click here for Details" and on clicking that link should take the user to that website*@
 </div>
 
-
-@using (Html.BeginForm("SaveRecipe", "RecipesSearch"))
+@*@using (Html.BeginForm("SaveRecipe", "RecipesSearch"))
 {
     <input type="submit" value="Save Recipe" />
-}
+}*@
+
+<input type="button" value="Save Recipe" onclick="location.href='@Url.Action("SaveRecipe", "RecipesSearch", new { id = Model.Id })'" />

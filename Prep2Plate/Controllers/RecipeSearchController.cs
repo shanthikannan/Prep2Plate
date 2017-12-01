@@ -20,7 +20,7 @@ namespace Prep2Plate.Controllers
     [Authorize]
     public class RecipesSearchController : Controller
     {
-        private RecipeContext db = new RecipeContext();        
+        private ApplicationDbContext db = new ApplicationDbContext();        
         ////Hosted web API REST Service base url  
         private string AppId = "bf728886";
         private string AppKey = "a1608c3e5cc021f4354aa6755f42c294";
@@ -126,18 +126,18 @@ namespace Prep2Plate.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            RecipeSearchResult recipeSearchResult = db.RecipeSearchResults.Find(id);
-            if (recipeSearchResult == null)
+            RecipeSearchResult currentRecipeSearchResult = db.RecipeSearchResults.Find(id);
+            if (currentRecipeSearchResult == null)
             {
                 return HttpNotFound();
             }
-            if (recipeSearchResult.Ingredients == null)
+            if (currentRecipeSearchResult.Ingredients == null)
             {
-                string _requestUrl = "api/recipe/" + recipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
+                string _requestUrl = "api/recipe/" + currentRecipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
                 string httpResponse = CallYumlyApi(_requestUrl);
-                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, recipeSearchResult);
+                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, currentRecipeSearchResult);
             }
-            return View(recipeSearchResult);
+            return View(currentRecipeSearchResult);
         }
 
         private void ClearDatabase()
@@ -157,11 +157,23 @@ namespace Prep2Plate.Controllers
             }
             base.Dispose(disposing);
         }
-        
-        public ActionResult SaveRecipe()
-        {
-            Console.WriteLine(User.Identity.Name);
-            return RedirectToAction("Index", new { id = -1 });
+
+        public ActionResult SaveRecipe(String id)
+        { 
+            UserRecipe userRecipe = new UserRecipe();
+
+            RecipeSearchResult currentRecipeSearchResult = db.RecipeSearchResults.Find(id);
+            userRecipe.RecipeId = currentRecipeSearchResult.Id;
+            userRecipe.RecipeName = currentRecipeSearchResult.RecipeName;
+            userRecipe.ImageUrl = currentRecipeSearchResult.ImageUrl;
+            userRecipe.RecipeSourceUrl = currentRecipeSearchResult.RecipeSourceUrl;
+            userRecipe.Ingredients = currentRecipeSearchResult.Ingredients;
+
+            userRecipe.UserName = User.Identity.Name;
+
+            db.UserRecipes.Add(userRecipe);
+            db.SaveChanges();
+            return RedirectToAction("Index","UserRecipes");
         }
     }
 }
