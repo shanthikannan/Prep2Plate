@@ -133,13 +133,10 @@ namespace Prep2Plate.Controllers
             }
             base.Dispose(disposing);
         }
-        // POST: /Dinners/Edit/2
-
-        [AcceptVerbs(HttpVerbs.Post)]
-        public ActionResult Edit()
-        { 
-          
-            return RedirectToAction("Details");
+        
+        public ActionResult SaveRecipe()
+        {
+            return RedirectToAction("Index", new { id = -1 });
         }
     }
 }

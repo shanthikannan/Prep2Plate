@@ -49,6 +49,7 @@ namespace Prep2Plate.Models
 
     public class LoginViewModel
     {
+        //Added First and Last Name to the User Registration Fields.
         [Required]
         [Display(Name = "Email")]
         [EmailAddress]
