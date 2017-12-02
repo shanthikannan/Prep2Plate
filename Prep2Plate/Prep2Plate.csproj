@@ -193,6 +193,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\RecipeCalendarController.cs" />
     <Compile Include="Controllers\RecipeSearchController.cs" />
     <Compile Include="Controllers\UserRecipesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -220,6 +221,10 @@
     <Compile Include="Migrations\UserMgmt\201712010353429_SaveUsersAndRecipes.Designer.cs">
       <DependentUpon>201712010353429_SaveUsersAndRecipes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\UserMgmt\201712020412387_AddingCalendar.cs" />
+    <Compile Include="Migrations\UserMgmt\201712020412387_AddingCalendar.Designer.cs">
+      <DependentUpon>201712020412387_AddingCalendar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserMgmt\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -228,6 +233,7 @@
     <Compile Include="Models\MealsToPrep.cs" />
     <Compile Include="Models\PreferredCookingDay.cs" />
     <Compile Include="Models\PreferredShoppingDay.cs" />
+    <Compile Include="Models\RecipeCalendarData.cs" />
     <Compile Include="Models\RecipeSearchResult.cs" />
     <Compile Include="Models\UserRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -301,6 +307,11 @@
     <Content Include="Views\UserRecipes\Delete.cshtml" />
     <Content Include="Views\UserRecipes\Details.cshtml" />
     <Content Include="Views\UserRecipes\Index.cshtml" />
+    <Content Include="Views\RecipeCalendar\Create.cshtml" />
+    <Content Include="Views\RecipeCalendar\Delete.cshtml" />
+    <Content Include="Views\RecipeCalendar\Details.cshtml" />
+    <Content Include="Views\RecipeCalendar\Edit.cshtml" />
+    <Content Include="Views\RecipeCalendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
@@ -333,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\UserMgmt\201712010353429_SaveUsersAndRecipes.resx">
       <DependentUpon>201712010353429_SaveUsersAndRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\UserMgmt\201712020412387_AddingCalendar.resx">
+      <DependentUpon>201712020412387_AddingCalendar.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

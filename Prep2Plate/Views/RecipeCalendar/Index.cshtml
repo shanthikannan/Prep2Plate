@@ -1,0 +1,71 @@
+﻿@using System.Globalization
+@model IEnumerable<Prep2Plate.Models.RecipeCalendarData>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>BREAKFAST</th>
+        <th>LUNCH</th>
+        <th>DINNER</th>
+    </tr>
+
+@{
+    const int NUMBER_OF_DAYS = 7;
+    const int BREAKFAST = 1;
+    const int LUNCH = 2;
+    const int DINNER = 3;
+    CultureInfo cultureInfo = new System.Globalization.CultureInfo("en-US");
+    string userName = User.Identity.Name;
+
+    for (int index = 0; index < NUMBER_OF_DAYS; index++)
+    {
+        <tr>
+            <td>@cultureInfo.DateTimeFormat.GetDayName((DayOfWeek)@index)</td>
+            <td>
+                @if (@Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(BREAKFAST) && calendarData.UserName.Equals(userName)) == null)
+                {
+                    <a href="@Url.Action("SaveRecipeToCalendar", "RecipeCalendar",new { dayOfWeek = @index, type = BREAKFAST})"> Add Here</a>
+                }
+                else
+                {
+                    <a href="@Url.Action("RemoveRecipeFromCalendar", "RecipeCalendar",new { dayOfWeek = @index, type = BREAKFAST})"> @Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(BREAKFAST) && calendarData.UserName.Equals(userName)).RecipeId</a>
+                }
+            </td>
+
+
+            <td>
+                @if (@Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(LUNCH) && calendarData.UserName.Equals(userName)) == null)
+                {
+                    <a href="@Url.Action("SaveRecipeToCalendar", "RecipeCalendar",new { dayOfWeek = @index, type = LUNCH})"> Add Here</a>
+                }
+                else
+                {
+                    @Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(LUNCH) && calendarData.UserName.Equals(userName)).RecipeId
+                }
+            </td>
+        
+
+
+            <td>
+                @if (@Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(DINNER) && calendarData.UserName.Equals(userName)) == null)
+                {
+                    <a href="@Url.Action("SaveRecipeToCalendar", "RecipeCalendar",new { dayOfWeek = @index, type = DINNER})"> Add Here</a>
+                }
+                else
+                {
+                    @Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(@index) && calendarData.TypeOfMeal.Equals(DINNER) && calendarData.UserName.Equals(userName)).RecipeId
+                }
+            </td>
+        </tr>        
+    }
+}
+ 
+   
+</table>
