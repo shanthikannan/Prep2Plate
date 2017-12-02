@@ -11,6 +11,7 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
+    [Authorize]
     public class RecipeCalendarController : Controller
     {
         private static string recipeId;
@@ -19,6 +20,19 @@ namespace Prep2Plate.Controllers
         // GET: RecipeCalendar
         public ActionResult Index(string id)
         {
+            //foreach (var calendarData in db.RecipeCalendar)
+            //{
+            //    db.RecipeCalendar.Remove(calendarData);
+            //}
+            //db.SaveChanges();
+            if (id == null)
+            {
+                ViewData["clickable"] = false;
+            }
+            else
+            {
+                ViewData["clickable"] = true;
+            }
             recipeId = id;
             return View(db.RecipeCalendar.ToList());
         }
