@@ -18,6 +18,6 @@ namespace Prep2Plate.Models
         [Key, Column(Order = 2)]
         public int TypeOfMeal { get; set; }
 
-        public string RecipeId { get; set; }
+        public string RecipeName { get; set; }
     }
 }

@@ -45,11 +45,11 @@
                     {
                         if (ViewData["clickable"].Equals(true))
                         {
-                            <a href="@Url.Action("RemoveRecipeFromCalendar", "RecipeCalendar", new {dayOfWeek = i, type = j})"> @Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(i) && calendarData.TypeOfMeal.Equals(j) && calendarData.UserName.Equals(userName)).RecipeId</a>
+                            <a href="@Url.Action("RemoveRecipeFromCalendar", "RecipeCalendar", new {dayOfWeek = i, type = j})"> @Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(i) && calendarData.TypeOfMeal.Equals(j) && calendarData.UserName.Equals(userName)).RecipeName</a>
                         }
                         else
                         {
-                            <p>@Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(i) && calendarData.TypeOfMeal.Equals(j) && calendarData.UserName.Equals(userName)).RecipeId</p>
+                            <p>@Model.FirstOrDefault(calendarData => calendarData.DayOfTheWeek.Equals(i) && calendarData.TypeOfMeal.Equals(j) && calendarData.UserName.Equals(userName)).RecipeName</p>
                         }
                     }
                 </td>

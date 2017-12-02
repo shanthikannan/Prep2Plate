@@ -33,7 +33,7 @@
                </a>
             </td>
            <td>
-               @using (Html.BeginForm("AddToCalendar", "UserRecipes",new{id = item.RecipeId}))
+               @using (Html.BeginForm("AddToCalendar", "UserRecipes",new{id = item.RecipeName}))
                {
                    <input type="submit" value="Add to Calendar" id="btnAdd" />
                }

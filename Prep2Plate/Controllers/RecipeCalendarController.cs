@@ -14,7 +14,7 @@ namespace Prep2Plate.Controllers
     [Authorize]
     public class RecipeCalendarController : Controller
     {
-        private static string recipeId;
+        private static string recipeName;
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: RecipeCalendar
@@ -33,7 +33,7 @@ namespace Prep2Plate.Controllers
             {
                 ViewData["clickable"] = true;
             }
-            recipeId = id;
+            recipeName = id;
             return View(db.RecipeCalendar.ToList());
         }
 
@@ -60,10 +60,10 @@ namespace Prep2Plate.Controllers
             calendarData.UserName = User.Identity.Name;
             calendarData.DayOfTheWeek = dayOfWeek;
             calendarData.TypeOfMeal = type;
-            calendarData.RecipeId = recipeId;
+            calendarData.RecipeName = recipeName;
             db.RecipeCalendar.AddOrUpdate(calendarData);
             db.SaveChanges();
-            return RedirectToAction("Index", new {id = recipeId});
+            return RedirectToAction("Index", new {id = recipeName});
         }
 
 
@@ -73,7 +73,7 @@ namespace Prep2Plate.Controllers
             RecipeCalendarData calendarData =  db.RecipeCalendar.Find(User.Identity.Name, dayOfWeek, type);
             db.RecipeCalendar.Remove(calendarData);
             db.SaveChanges();
-            return RedirectToAction("Index", new { id = recipeId });
+            return RedirectToAction("Index", new { id = recipeName });
         }
 
         // GET: RecipeCalendar/Create
@@ -87,7 +87,7 @@ namespace Prep2Plate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeId")] RecipeCalendarData recipeCalendarData)
+        public ActionResult Create([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeName")] RecipeCalendarData recipeCalendarData)
         {
             if (ModelState.IsValid)
             {
@@ -119,7 +119,7 @@ namespace Prep2Plate.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeId")] RecipeCalendarData recipeCalendarData)
+        public ActionResult Edit([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeName")] RecipeCalendarData recipeCalendarData)
         {
             if (ModelState.IsValid)
             {
