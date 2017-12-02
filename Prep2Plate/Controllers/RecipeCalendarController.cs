@@ -38,22 +38,6 @@ namespace Prep2Plate.Controllers
         }
 
         // GET: RecipeCalendar/Details/5
-        public ActionResult Details(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RecipeCalendarData recipeCalendarData = db.RecipeCalendar.Find(id);
-            if (recipeCalendarData == null)
-            {
-                return HttpNotFound();
-            }
-            return View(recipeCalendarData);
-        }
-
-
-        // GET: RecipeCalendar/Details/5
         public ActionResult SaveRecipeToCalendar(int dayOfWeek, int type)
         {
             RecipeCalendarData calendarData = new RecipeCalendarData();
@@ -74,86 +58,6 @@ namespace Prep2Plate.Controllers
             db.RecipeCalendar.Remove(calendarData);
             db.SaveChanges();
             return RedirectToAction("Index", new { id = recipeName });
-        }
-
-        // GET: RecipeCalendar/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: RecipeCalendar/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeName")] RecipeCalendarData recipeCalendarData)
-        {
-            if (ModelState.IsValid)
-            {
-                db.RecipeCalendar.Add(recipeCalendarData);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(recipeCalendarData);
-        }
-
-        // GET: RecipeCalendar/Edit/5
-        public ActionResult Edit(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RecipeCalendarData recipeCalendarData = db.RecipeCalendar.Find(id);
-            if (recipeCalendarData == null)
-            {
-                return HttpNotFound();
-            }
-            return View(recipeCalendarData);
-        }
-
-        // POST: RecipeCalendar/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserName,DayOfTheWeek,TypeOfMeal,RecipeName")] RecipeCalendarData recipeCalendarData)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(recipeCalendarData).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(recipeCalendarData);
-        }
-
-        // GET: RecipeCalendar/Delete/5
-        public ActionResult Delete(string id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            RecipeCalendarData recipeCalendarData = db.RecipeCalendar.Find(id);
-            if (recipeCalendarData == null)
-            {
-                return HttpNotFound();
-            }
-            return View(recipeCalendarData);
-        }
-
-        // POST: RecipeCalendar/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(string id)
-        {
-            RecipeCalendarData recipeCalendarData = db.RecipeCalendar.Find(id);
-            db.RecipeCalendar.Remove(recipeCalendarData);
-            db.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

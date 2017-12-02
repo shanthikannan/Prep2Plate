@@ -311,10 +311,6 @@
     <Content Include="Views\UserRecipes\Delete.cshtml" />
     <Content Include="Views\UserRecipes\Details.cshtml" />
     <Content Include="Views\UserRecipes\Index.cshtml" />
-    <Content Include="Views\RecipeCalendar\Create.cshtml" />
-    <Content Include="Views\RecipeCalendar\Delete.cshtml" />
-    <Content Include="Views\RecipeCalendar\Details.cshtml" />
-    <Content Include="Views\RecipeCalendar\Edit.cshtml" />
     <Content Include="Views\RecipeCalendar\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -126,18 +126,18 @@ namespace Prep2Plate.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            RecipeSearchResult currentRecipeSearchResult = db.RecipeSearchResults.Find(id);
-            if (currentRecipeSearchResult == null)
+            RecipeSearchResult recipeSearchResult = db.RecipeSearchResults.Find(id);
+            if (recipeSearchResult == null)
             {
                 return HttpNotFound();
             }
-            if (currentRecipeSearchResult.Ingredients == null)
+            if (recipeSearchResult.Ingredients == null)
             {
-                string _requestUrl = "api/recipe/" + currentRecipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
+                string _requestUrl = "api/recipe/" + recipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
                 string httpResponse = CallYumlyApi(_requestUrl);
-                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, currentRecipeSearchResult);
+                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, recipeSearchResult);
             }
-            return View(currentRecipeSearchResult);
+            return View(recipeSearchResult);
         }
 
         private void ClearDatabase()
@@ -160,19 +160,23 @@ namespace Prep2Plate.Controllers
 
         public ActionResult SaveRecipe(String id)
         { 
-            UserRecipe userRecipe = new UserRecipe();
+            RecipeSearchResult result = db.RecipeSearchResults.Find(id);
 
-            RecipeSearchResult currentRecipeSearchResult = db.RecipeSearchResults.Find(id);
-            userRecipe.RecipeId = currentRecipeSearchResult.Id;
-            userRecipe.RecipeName = currentRecipeSearchResult.RecipeName;
-            userRecipe.ImageUrl = currentRecipeSearchResult.ImageUrl;
-            userRecipe.RecipeSourceUrl = currentRecipeSearchResult.RecipeSourceUrl;
-            userRecipe.Ingredients = currentRecipeSearchResult.Ingredients;
+            UserRecipe userRecipe = db.UserRecipes.Find(result.Id, User.Identity.Name);
+            if (userRecipe == null)
+            {
+                userRecipe = new UserRecipe();
+                userRecipe.RecipeId = result.Id;
+                userRecipe.RecipeName = result.RecipeName;
+                userRecipe.ImageUrl = result.ImageUrl;
+                userRecipe.RecipeSourceUrl = result.RecipeSourceUrl;
+                userRecipe.Ingredients = result.Ingredients;
 
-            userRecipe.UserName = User.Identity.Name;
+                userRecipe.UserName = User.Identity.Name;
 
-            db.UserRecipes.Add(userRecipe);
-            db.SaveChanges();
+                db.UserRecipes.Add(userRecipe);
+                db.SaveChanges();
+            }
             return RedirectToAction("Index","UserRecipes");
         }
     }
