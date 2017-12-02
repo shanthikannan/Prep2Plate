@@ -6,44 +6,13 @@
 
 <h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Are you sure you want to delete this Recipe?</h3>
 <div>
-    <h4>UserRecipe</h4>
+    <h4>@Html.DisplayFor(model => model.RecipeName)</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ImageUrl)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RecipeName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Ingredients)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeSourceUrl)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RecipeSourceUrl)
-        </dd>
-
-    </dl>
+    <p /><p />
+    <img src="@Url.Content(Model.ImageUrl)" />
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
