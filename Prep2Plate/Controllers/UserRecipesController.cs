@@ -35,6 +35,11 @@ namespace Prep2Plate.Controllers
             return View(userRecipe);
         }
 
+        public ActionResult AddToCalendar(string id)
+        {
+            return RedirectToAction("Index", "RecipeCalendar", new { id = id });
+        }
+
         public ActionResult Delete(string id)
         {
             if (id == null)
