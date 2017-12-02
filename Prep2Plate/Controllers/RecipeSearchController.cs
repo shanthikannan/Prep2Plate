@@ -49,7 +49,6 @@ namespace Prep2Plate.Controllers
             }
             else
             {
-                //Show Error Message
                 return RedirectToAction("About", "Home");
             }
         }
@@ -79,7 +78,6 @@ namespace Prep2Plate.Controllers
                 {
                     return null;
                 }
-
             }
         }
 
@@ -111,14 +109,11 @@ namespace Prep2Plate.Controllers
         {
             JObject jObect = JObject.Parse(httpResponse);
             recipeSearchResult.Ingredients = jObect["ingredientLines"].ToString();
-            //Get the sourceRecipeUrl and store it in the model
             recipeSearchResult.RecipeSourceUrl = jObect["source"]["sourceRecipeUrl"].ToString();
             db.SaveChanges();
             return false;
         }
 
-
-        // GET: RecipeSearchResults/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -161,7 +156,6 @@ namespace Prep2Plate.Controllers
         public ActionResult SaveRecipe(String id)
         { 
             RecipeSearchResult result = db.RecipeSearchResults.Find(id);
-
             UserRecipe userRecipe = db.UserRecipes.Find(result.Id, User.Identity.Name);
             if (userRecipe == null)
             {

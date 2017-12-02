@@ -14,17 +14,11 @@ namespace Prep2Plate.Controllers
     [Authorize]
     public class RecipeCalendarController : Controller
     {
-        private static string recipeName;
+        private static string _recipeName;
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: RecipeCalendar
         public ActionResult Index(string id)
         {
-            //foreach (var calendarData in db.RecipeCalendar)
-            //{
-            //    db.RecipeCalendar.Remove(calendarData);
-            //}
-            //db.SaveChanges();
             if (id == null)
             {
                 ViewData["clickable"] = false;
@@ -33,31 +27,28 @@ namespace Prep2Plate.Controllers
             {
                 ViewData["clickable"] = true;
             }
-            recipeName = id;
+            _recipeName = id;
             return View(db.RecipeCalendar.ToList());
         }
 
-        // GET: RecipeCalendar/Details/5
         public ActionResult SaveRecipeToCalendar(int dayOfWeek, int type)
         {
             RecipeCalendarData calendarData = new RecipeCalendarData();
             calendarData.UserName = User.Identity.Name;
             calendarData.DayOfTheWeek = dayOfWeek;
             calendarData.TypeOfMeal = type;
-            calendarData.RecipeName = recipeName;
+            calendarData.RecipeName = _recipeName;
             db.RecipeCalendar.AddOrUpdate(calendarData);
             db.SaveChanges();
-            return RedirectToAction("Index", new {id = recipeName});
+            return RedirectToAction("Index", new {id = _recipeName});
         }
 
-
-        // GET: RecipeCalendar/Details/5
         public ActionResult RemoveRecipeFromCalendar(int dayOfWeek, int type)
         {
             RecipeCalendarData calendarData =  db.RecipeCalendar.Find(User.Identity.Name, dayOfWeek, type);
             db.RecipeCalendar.Remove(calendarData);
             db.SaveChanges();
-            return RedirectToAction("Index", new { id = recipeName });
+            return RedirectToAction("Index", new { id = _recipeName });
         }
 
         protected override void Dispose(bool disposing)
