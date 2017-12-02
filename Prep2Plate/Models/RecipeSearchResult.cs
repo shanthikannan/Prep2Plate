@@ -13,7 +13,6 @@ namespace Prep2Plate.Models
         public string ImageUrl { get; set; }
         public string RecipeName { get; set; } 
         public string Ingredients { get; set; }
-        //Add a string for recipeSourceUrl
         public string RecipeSourceUrl { get; set; }
     }
 }

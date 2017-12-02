@@ -299,10 +299,8 @@
     <Content Include="Views\RecipesSearch\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\Preferences.cshtml" />
-    <Content Include="Views\UserRecipes\Create.cshtml" />
     <Content Include="Views\UserRecipes\Delete.cshtml" />
     <Content Include="Views\UserRecipes\Details.cshtml" />
-    <Content Include="Views\UserRecipes\Edit.cshtml" />
     <Content Include="Views\UserRecipes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

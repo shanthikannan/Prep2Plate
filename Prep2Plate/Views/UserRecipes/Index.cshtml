@@ -24,7 +24,7 @@
     @foreach (var item in Model)
     {
        <tr>
-           <td valign="center">
+           <td>
                @Html.DisplayFor(modelItem => item.RecipeName)
            </td>
            <td>               
@@ -32,60 +32,17 @@
                    <img src="@Url.Content(@item.ImageUrl)" />
                </a>
             </td>
-           <td valign="center">
+           <td>
                @using (Html.BeginForm("Index", "UserRecipes"))
                {
                    <input type="submit" value="Add to Calendar" id="btnAdd" />
                }
            </td>
-            <td valign="center">
+            <td>
                 @Html.ActionLink("Delete", "Delete", new { id=item.RecipeId})
             </td>
        </tr>
     }
-
-
-
-
-    @*<tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ImageUrl)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ingredients)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RecipeSourceUrl)
-        </th>
-        <th></th>
-    </tr>*@
-
-   @*@foreach (var item in Model)
-    {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ImageUrl)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ingredients)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RecipeSourceUrl)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new {/* id=item.PrimaryKey */}) |
-            @Html.ActionLink("Details", "Details", new {/* id=item.PrimaryKey */}) |
-            @Html.ActionLink("Delete", "Delete", new {/* id=item.PrimaryKey */})
-        </td>
-    </tr>*@
-   
-
 </table>
 
 <style>

@@ -10,17 +10,16 @@ using Prep2Plate.Models;
 
 namespace Prep2Plate.Controllers
 {
+    [Authorize]
     public class UserRecipesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: UserRecipes
         public ActionResult Index()
         {
             return View(db.UserRecipes.Where(userRecipe => userRecipe.UserName.Equals(User.Identity.Name)).ToList());
         }
 
-        // GET: UserRecipes/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -34,10 +33,8 @@ namespace Prep2Plate.Controllers
             }
 
             return View(userRecipe);
-        }       
-      
+        }
 
-        // GET: UserRecipes/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -53,7 +50,6 @@ namespace Prep2Plate.Controllers
             return View(userRecipe);
         }
 
-        // POST: UserRecipes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

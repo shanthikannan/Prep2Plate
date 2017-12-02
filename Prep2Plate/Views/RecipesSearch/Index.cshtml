@@ -5,9 +5,6 @@
 }
 
 <h2>Search Recipes</h2>
-<!-- Add a Edit Box-->
-<!-- Add a Search button-->
-<!-- on click of the button | -->
 @using (Html.BeginForm("OnSearchRecipe", "RecipesSearch")) {
     <input id="searchRecipe" type="text" name ="searchRecipe" size="100" placeholder="Search Recipe" /> 
     <input id="Search" type="submit" value="Search"/>
@@ -31,5 +28,4 @@
             </td>
         </tr>
     }
-
 </table>
