@@ -20,12 +20,9 @@
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
     <IISExpressSSLPort>44340</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication>
-    </IISExpressAnonymousAuthentication>
-    <IISExpressWindowsAuthentication>
-    </IISExpressWindowsAuthentication>
-    <IISExpressUseClassicPipelineMode>
-    </IISExpressUseClassicPipelineMode>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -197,22 +194,33 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipeSearchController.cs" />
+    <Compile Include="Controllers\UserRecipesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712011621559_InitialModel.cs" />
-    <Compile Include="Migrations\201712011621559_InitialModel.Designer.cs">
-      <DependentUpon>201712011621559_InitialModel.cs</DependentUpon>
+    <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.cs" />
+    <Compile Include="Migrations\201711281727164_RemovedFirstandLastNames.Designer.cs">
+      <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712011627591_AddRecipeSearchResults.cs" />
-    <Compile Include="Migrations\201712011627591_AddRecipeSearchResults.Designer.cs">
-      <DependentUpon>201712011627591_AddRecipeSearchResults.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712011634160_AddFirstAndLastNames.cs" />
-    <Compile Include="Migrations\201712011634160_AddFirstAndLastNames.Designer.cs">
-      <DependentUpon>201712011634160_AddFirstAndLastNames.cs</DependentUpon>
+    <Compile Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.cs" />
+    <Compile Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.Designer.cs">
+      <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.cs" />
+    <Compile Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.Designer.cs">
+      <DependentUpon>201712010302269_AddingRecipeSourceUrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Recipe\Configuration.cs" />
+    <Compile Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.cs" />
+    <Compile Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.Designer.cs">
+      <DependentUpon>201711290416511_UsersAndRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\UserMgmt\201712010353429_SaveUsersAndRecipes.cs" />
+    <Compile Include="Migrations\UserMgmt\201712010353429_SaveUsersAndRecipes.Designer.cs">
+      <DependentUpon>201712010353429_SaveUsersAndRecipes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\UserMgmt\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -221,10 +229,16 @@
     <Compile Include="Models\PreferredCookingDay.cs" />
     <Compile Include="Models\PreferredShoppingDay.cs" />
     <Compile Include="Models\RecipeSearchResult.cs" />
+    <Compile Include="Models\UserRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PREP2PLATE.mdf" />
+    <Content Include="App_Data\PREP2PLATE_log.ldf">
+      <DependentUpon>PREP2PLATE.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -284,9 +298,11 @@
     <Content Include="Views\RecipesSearch\Index.cshtml" />
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\Preferences.cshtml" />
+    <Content Include="Views\UserRecipes\Delete.cshtml" />
+    <Content Include="Views\UserRecipes\Details.cshtml" />
+    <Content Include="Views\UserRecipes\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <ItemGroup>
@@ -303,14 +319,20 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712011621559_InitialModel.resx">
-      <DependentUpon>201712011621559_InitialModel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711281727164_RemovedFirstandLastNames.resx">
+      <DependentUpon>201711281727164_RemovedFirstandLastNames.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011627591_AddRecipeSearchResults.resx">
-      <DependentUpon>201712011627591_AddRecipeSearchResults.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711281734265_AddedFirstAndLastNamestoRegisterPage.resx">
+      <DependentUpon>201711281734265_AddedFirstAndLastNamestoRegisterPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712011634160_AddFirstAndLastNames.resx">
-      <DependentUpon>201712011634160_AddFirstAndLastNames.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\Recipe\201712010302269_AddingRecipeSourceUrl.resx">
+      <DependentUpon>201712010302269_AddingRecipeSourceUrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\UserMgmt\201711290416511_UsersAndRecipes.resx">
+      <DependentUpon>201711290416511_UsersAndRecipes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\UserMgmt\201712010353429_SaveUsersAndRecipes.resx">
+      <DependentUpon>201712010353429_SaveUsersAndRecipes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

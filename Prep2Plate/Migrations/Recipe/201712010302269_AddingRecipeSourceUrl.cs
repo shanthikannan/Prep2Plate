@@ -1,9 +1,9 @@
-namespace Prep2Plate.Migrations
+namespace Prep2Plate.Migrations.Recipe
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class AddRecipeSearchResults : DbMigration
+    public partial class AddingRecipeSourceUrl : DbMigration
     {
         public override void Up()
         {

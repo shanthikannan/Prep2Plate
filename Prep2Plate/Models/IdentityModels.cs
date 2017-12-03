@@ -33,6 +33,7 @@ namespace Prep2Plate.Models
         //DBset for Customers
         public DbSet<Customers> Customer { get; set; }
         public DbSet<RecipeSearchResult> RecipeSearchResults { get; set; }
+        public DbSet<UserRecipe> UserRecipes { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
