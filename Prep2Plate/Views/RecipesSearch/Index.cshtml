@@ -19,7 +19,9 @@
     @foreach (var item in Model) {
         <tr>
             <td>
-                @item.RecipeName.ToString()
+                <a href="@Url.Action("Details", "RecipesSearch", new { id=item.Id })">
+                    @item.RecipeName.ToString()
+                </a>
             </td>
             <td>
                 <a href="@Url.Action("Details", "RecipesSearch", new { id=item.Id })" class="thumbnail">

@@ -25,7 +25,9 @@
     {
        <tr>
            <td>
-               @Html.DisplayFor(modelItem => item.RecipeName)
+               <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
+                   @Html.DisplayFor(modelItem => item.RecipeName)
+               </a>
            </td>
            <td>               
                <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
