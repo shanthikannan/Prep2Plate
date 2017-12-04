@@ -12,7 +12,7 @@ namespace Prep2Plate.Models
 
         
        [Required]
-        [Display (Name = "Please Select your Dietry Preferences")]
+        [Display (Name = "Please Select your Dietary Preferences")]
         public string Diet { get; set; }
 
         public PreferredShoppingDay PreferredShoppingDay { get; set; }

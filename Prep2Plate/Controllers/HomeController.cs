@@ -22,7 +22,7 @@ namespace Prep2Plate.Controllers
 
         public ActionResult Preferences()
         {
-            ViewBag.Message = "Select your dietary preferences.";
+            ViewBag.Message = "";
 
             return View();
         }

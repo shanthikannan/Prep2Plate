@@ -138,5 +138,20 @@ namespace Prep2Plate.Controllers
         {
             return RedirectToAction("Index", new { id = -1 });
         }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add insert logic here
+
+                return RedirectToAction("");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }

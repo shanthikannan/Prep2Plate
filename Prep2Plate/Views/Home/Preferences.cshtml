@@ -8,7 +8,7 @@
 </div>
 <br />
 @*<a href="~/Views/Account/ExternalLoginFailure.cshtml">~/Views/Account/ExternalLoginFailure.cshtml</a>*@
-@using (Html.BeginForm("Create", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Create", "RecipesSearch", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="text-center">
         <div class="form-group">
@@ -30,12 +30,12 @@
 
         <br />
         <br />
-        <div class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+        @*<div class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
             <button class="btn btn-primary">Allergies:</button>
-            @Html.TextBoxFor(p => p.Diet)
-        </div>
+            @Html.TextBoxFor(p => p.Diet)*@
+        @*</div>
         <br />
-        <br />
+        <br />*@
 
 
         @*<div class="form-group">
@@ -79,22 +79,24 @@
             <br />
             <br />*@
 
-        <div class="form-group">
+        @*<div class="form-group">*@
             @*@Html.LabelFor(p => p.MealsToPrep)*@
-            <label for="MealsToPrep">Which meals are you prepping for?</label>
-        </div>
+            @*<label for="MealsToPrep">Which meals are you prepping for?</label>*@
+        @*</div>*@
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
+        @*<button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
 
         <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>*@
 
+        @*<br />
         <br />
-        <br />
-        <br />
-        <div class="btn-default">
-            <button class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>
+        <br />*@
+
+
+        <div>
+             <button href="https://localhost:44340/RecipesSearch" class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>
         </div>
     </div>
 }
