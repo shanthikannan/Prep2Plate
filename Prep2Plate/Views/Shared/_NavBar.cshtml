@@ -10,6 +10,10 @@
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
+                @*Here we are providing links to different pages , 
+                    The 1st parameter is the name  of the link, 
+                    2nd parameter will tell you the action method ,
+                    3rd parameter is the controller *@
                 <li>@Html.ActionLink("Preferences", "Preferences", "Home")</li>
                 <li>@Html.ActionLink("Search Recipes", "Index", "RecipesSearch")</li>
                 <li>@Html.ActionLink("My Recipe", "Index", "UserRecipes")</li>
