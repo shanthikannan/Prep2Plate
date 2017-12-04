@@ -25,7 +25,9 @@
     {
        <tr>
            <td>
-               @Html.DisplayFor(modelItem => item.RecipeName)
+               <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
+                   @Html.DisplayFor(modelItem => item.RecipeName)
+               </a>
            </td>
            <td>               
                <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
@@ -33,7 +35,7 @@
                </a>
             </td>
            <td>
-               @using (Html.BeginForm("Index", "UserRecipes"))
+               @using (Html.BeginForm("AddToCalendar", "UserRecipes",new{id = item.RecipeName}))
                {
                    <input type="submit" value="Add to Calendar" id="btnAdd" />
                }
