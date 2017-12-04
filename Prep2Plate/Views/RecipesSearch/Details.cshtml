@@ -9,35 +9,30 @@
 <div>
     <h4>Recipe</h4>
     <hr />
-    <dl id="datalist" class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.RecipeName)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.RecipeName)
-        </dd>
-    </dl>
-    <div><img src="@Url.Content(Model.ImageUrl)" />
-    </div>  
+    <p>
+        @Html.ActionLink("Back to List", "Index", new {id = -1})
+    </p>
+
+    <p/><p/>
+    <p><b> @Html.DisplayNameFor(model => model.RecipeName) </b></p>
+    <p>@Html.DisplayFor(model => model.RecipeName)</p>
+
+    <p /><p />
+    <img src="@Url.Content(Model.ImageUrl)" />
+   
     <p/><p/>
     <p><b> @Html.DisplayNameFor(model => model.Ingredients) </b></p>
     @{
         var items = Json.Decode(Model.Ingredients); 
     }
     <ul>
-    @foreach (var item in items)
-    {
-        <li>@item.ToString()</li>
-    }    
+        @foreach (var item in items)
+        {
+            <li>@item.ToString()</li>
+        }    
     </ul>
+    <a href="@Model.RecipeSourceUrl"><b>Click Here For Detailed Information</b></a>
+    <br/><br/>
 </div>
 
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
-    @Html.ActionLink("Back to List", "Index", new {id = -1})
-</p>
-
-@using (Html.BeginForm("SaveRecipe", "RecipesSearch"))
-{
-    <input type="submit" value="Save Recipe" />
-}
+<input type="button" value="Save Recipe" onclick="location.href='@Url.Action("SaveRecipe", "RecipesSearch", new { id = Model.Id })'" />

@@ -1,0 +1,54 @@
+﻿@using Prep2Plate.Controllers
+@model IEnumerable<Prep2Plate.Models.UserRecipe>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>My Recipe</h2>
+<p>
+    @Html.ActionLink("Back to Recipe Search", "Index","RecipesSearch", new { id = -1 }, null)
+</p>
+
+<table class="table">
+    
+    <tr>
+        <th>Recipe Name</th>
+        <th>Image</th>
+        <th>Add to Calendar</th>
+        <th>Delete</th>
+    </tr>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+       <tr>
+           <td>
+               <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
+                   @Html.DisplayFor(modelItem => item.RecipeName)
+               </a>
+           </td>
+           <td>               
+               <a href="@Url.Action("Details", "UserRecipes",new { id=item.RecipeId})">
+                   <img src="@Url.Content(@item.ImageUrl)" />
+               </a>
+            </td>
+           <td>
+               @using (Html.BeginForm("AddToCalendar", "UserRecipes",new{id = item.RecipeName}))
+               {
+                   <input type="submit" value="Add to Calendar" id="btnAdd" />
+               }
+           </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id=item.RecipeId})
+            </td>
+       </tr>
+    }
+</table>
+
+<style>
+    .table > tbody > tr > td {
+        vertical-align: middle
+    }
+</style>

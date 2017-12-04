@@ -1,5 +1,3 @@
-using Prep2Plate.Models;
-
 namespace Prep2Plate.Migrations.Recipe
 {
     using System;
@@ -29,15 +27,6 @@ namespace Prep2Plate.Migrations.Recipe
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
-
-            RecipeSearchResult recipeSearchResult = new RecipeSearchResult();
-            recipeSearchResult.Id = "Id";
-            recipeSearchResult.Ingredients = "Ingredients";
-            recipeSearchResult.ImageUrl = "ImageUrl";
-            recipeSearchResult.RecipeName = "RecipeName";
-
-            context.RecipeSearchResults.AddOrUpdate(rsr => rsr.Id, recipeSearchResult);
-            context.SaveChanges();
         }
     }
 }
