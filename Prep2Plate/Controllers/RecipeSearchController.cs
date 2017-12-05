@@ -65,7 +65,7 @@ namespace Prep2Plate.Controllers
             //Call the fn "ParseSearchResultsResponseAndStoreInDb" to Parse the search result HTTPresponse string 
             //and store the data(search result) in db. This fn returns a boolean (True if sucessfull and false otherwise)
             bool result = ParseSearchResultsResponseAndStoreInDb(httpResponse);
-            if (result) // if result is true load index.csthmlpage
+            if (result) // if result is tr ue load index.csthmlpage
             {   // We pass an id value (this will prevent clearing the db)
                 return RedirectToAction("Index", new { id = -1 });
             }
@@ -213,7 +213,7 @@ namespace Prep2Plate.Controllers
                 userRecipe.RecipeId = result.Id;
                 userRecipe.RecipeName = result.RecipeName;
                 userRecipe.ImageUrl = result.ImageUrl;
-                userRecipe.RecipeSourceUrl = result.RecipeSourceUrl;
+                userRecipe.RecipeSourceUrl s = result.RecipeSourceUrl;
                 userRecipe.Ingredients = result.Ingredients;
 
                 userRecipe.UserName = User.Identity.Name;

@@ -13,7 +13,8 @@ namespace Prep2Plate.Controllers
     [Authorize]
     public class UserRecipesController : Controller
     {
-        private ApplicationDbContext db = new ApplicationDbContext();
+        // Creating instance of the db context class to access the model.
+            private ApplicationDbContext db = new ApplicationDbContext();
 
         public ActionResult Index()
         {

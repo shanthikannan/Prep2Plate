@@ -31,6 +31,7 @@ namespace Prep2Plate.Controllers
             return View(db.RecipeCalendar.ToList());
         }
 
+
         public ActionResult SaveRecipeToCalendar(int dayOfWeek, int type)
         {
             RecipeCalendarData calendarData = new RecipeCalendarData();
