@@ -312,6 +312,7 @@
     <Content Include="Views\UserRecipes\Details.cshtml" />
     <Content Include="Views\UserRecipes\Index.cshtml" />
     <Content Include="Views\RecipeCalendar\Index.cshtml" />
+    <Content Include="Views\RecipesSearch\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
