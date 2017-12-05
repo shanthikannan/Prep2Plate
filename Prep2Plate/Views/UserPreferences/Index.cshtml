@@ -1,14 +1,18 @@
-﻿@model Prep2Plate.Models.Customers
+﻿@model IEnumerable<Prep2Plate.Models.UserPreference>
+
 @{
-    ViewBag.Title = "Preferences";
+    ViewBag.Title = "User Preferences";
 }
+
+<h2>Dietary Preferences</h2>
+
 <div class="text-center">
     <h2>@ViewBag.Title.</h2>
     <h3>@ViewBag.Message</h3>
 </div>
 <br />
 @*<a href="~/Views/Account/ExternalLoginFailure.cshtml">~/Views/Account/ExternalLoginFailure.cshtml</a>*@
-@using (Html.BeginForm("Index", "RecipesSearch", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+@using (Html.BeginForm("Prep", "UserPreferences", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="text-center">
         <div class="form-group">
@@ -16,7 +20,7 @@
             <label for="Diet">Please select your dietary preferences:</label>
         </div>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">Vegetarian</button>
+        <button id ="veg" class="btn btn-primary" data-toggle="button" aria-pressed="true" autocomplete="off">Vegetarian</button>
 
         <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Pescetarian</button>
 
@@ -31,9 +35,9 @@
         <br />
         <br />
         @*<div class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            <button class="btn btn-primary">Allergies:</button>
-            @Html.TextBoxFor(p => p.Diet)
-        </div>*@
+                <button class="btn btn-primary">Allergies:</button>
+                @Html.TextBoxFor(p => p.Diet)
+            </div>*@
         <br />
         <br />
 
@@ -80,26 +84,30 @@
             <br />*@
 
         @*<div class="form-group">*@
-            @*@Html.LabelFor(p => p.MealsToPrep)*@
-            @*<label for="MealsToPrep">Which meals are you prepping for?</label>
-        </div>*@
+        @*@Html.LabelFor(p => p.MealsToPrep)*@
+        @*<label for="MealsToPrep">Which meals are you prepping for?</label>
+            </div>*@
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
+        @*<button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
 
         <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>*@
+        @*<button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
+
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>*@
 
         <br />
         <br />
         <br />
-@*        <div class="btn-default">*@
-            @*<button class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>*@
-            <input id="PREP" type="submit" value="PREP" />
+        @*        <div class="btn-default">*@
+        @*<button class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>*@
+        <input id="PREP" type="submit" value="PREP" />
         @*</div>*@
     </div>
 }
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")*@

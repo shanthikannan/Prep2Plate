@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipeCalendarController.cs" />
     <Compile Include="Controllers\RecipeSearchController.cs" />
+    <Compile Include="Controllers\UserPreferencesController.cs" />
     <Compile Include="Controllers\UserRecipesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -229,6 +230,10 @@
     <Compile Include="Migrations\UserMgmt\201712021527146_RecipeIdToName.Designer.cs">
       <DependentUpon>201712021527146_RecipeIdToName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\UserMgmt\201712050438097_AddingPref.cs" />
+    <Compile Include="Migrations\UserMgmt\201712050438097_AddingPref.Designer.cs">
+      <DependentUpon>201712050438097_AddingPref.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\UserMgmt\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customers.cs" />
@@ -239,6 +244,7 @@
     <Compile Include="Models\PreferredShoppingDay.cs" />
     <Compile Include="Models\RecipeCalendarData.cs" />
     <Compile Include="Models\RecipeSearchResult.cs" />
+    <Compile Include="Models\UserPreference.cs" />
     <Compile Include="Models\UserRecipe.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -313,6 +319,7 @@
     <Content Include="Views\UserRecipes\Index.cshtml" />
     <Content Include="Views\RecipeCalendar\Index.cshtml" />
     <Content Include="Views\RecipesSearch\Error.cshtml" />
+    <Content Include="Views\UserPreferences\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
@@ -351,6 +358,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\UserMgmt\201712021527146_RecipeIdToName.resx">
       <DependentUpon>201712021527146_RecipeIdToName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\UserMgmt\201712050438097_AddingPref.resx">
+      <DependentUpon>201712050438097_AddingPref.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

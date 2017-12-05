@@ -50,8 +50,18 @@ namespace Prep2Plate.Controllers
             try
             {
                 ClearDatabase();
+                string searchString;
+                UserPreference userPreference = db.UserPreferences.Find(User.Identity.Name);
+                if (userPreference == null)
+                {
+                    searchString = searchRecipe;
+                }
+                else
+                {
+                    searchString = userPreference.Preferences + " " + searchRecipe;
+                }
                 string _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey +
-                                     "&requirePictures=true&q=" + searchRecipe;
+                                     "&requirePictures=true&q=" + searchString;
                 string httpResponse = CallYumlyApi(_requestUrl);
                 ParseSearchResultsResponseAndStoreInDb(httpResponse);
                 return RedirectToAction("Index", new {id = -1});
