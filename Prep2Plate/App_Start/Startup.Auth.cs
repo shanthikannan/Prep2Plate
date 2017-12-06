@@ -54,9 +54,9 @@ namespace Prep2Plate
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "173109163426702",
-               appSecret: "b6c5416ebf2508a4bfb0202ac0b3905f");
+            //app.UseFacebookAuthentication(
+            //   appId: "173109163426702",
+            //   appSecret: "b6c5416ebf2508a4bfb0202ac0b3905f");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {

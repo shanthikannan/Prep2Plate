@@ -9,7 +9,7 @@ namespace Prep2Plate
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new RequireHttpsAttribute());
-            filters.Add((new AuthorizeAttribute()));
+            filters.Add(new AuthorizeAttribute());
         }
     }
 }
