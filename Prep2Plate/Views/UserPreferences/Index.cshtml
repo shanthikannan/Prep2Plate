@@ -1,14 +1,13 @@
-﻿@model Prep2Plate.Models.Customers
+﻿@model IEnumerable<Prep2Plate.Models.UserPreference>
+
 @{
-    ViewBag.Title = "Preferences";
+    ViewBag.Title = "Index";
 }
-<div class="text-center">
-    <h2>@ViewBag.Title.</h2>
-    <h3>@ViewBag.Message</h3>
-</div>
-<br />
-@*<a href="~/Views/Account/ExternalLoginFailure.cshtml">~/Views/Account/ExternalLoginFailure.cshtml</a>*@
-@using (Html.BeginForm("Index", "RecipesSearch", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+
+<h2>Dietary Preferences</h2>
+
+
+@using (Html.BeginForm("Index", "UserPreferences", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
     <div class="text-center">
         <div class="form-group">
@@ -24,7 +23,7 @@
 
         <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Kosher</button>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten - Free</button>
+        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Gluten-Free</button>
 
         <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dairy Free</button>
 
@@ -34,8 +33,8 @@
             <button class="btn btn-primary">Allergies:</button>
             @Html.TextBoxFor(p => p.Diet)*@
         @*</div>
-        <br />
-        <br />*@
+            <br />
+            <br />*@
 
 
         @*<div class="form-group">
@@ -80,26 +79,51 @@
             <br />*@
 
         @*<div class="form-group">*@
-            @*@Html.LabelFor(p => p.MealsToPrep)*@
-            @*<label for="MealsToPrep">Which meals are you prepping for?</label>*@
+        @*@Html.LabelFor(p => p.MealsToPrep)*@
+        @*<label for="MealsToPrep">Which meals are you prepping for?</label>*@
         @*</div>*@
 
         @*<button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Breakfast</button>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Lunch</button>
 
-        <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>*@
+            <button class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">Dinner</button>*@
 
         @*<br />
-        <br />
-        <br />*@
-
-
+            <br />
+            <br />*@
         <div>
-             <button href="https://localhost:44340/RecipesSearch" class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>
+            <button href="https://localhost:44340/RecipesSearch" class="btn btn-primary" type="submit"><b><em>PREP!</em></b></button>
         </div>
     </div>
 }
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Preferences)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Preferences)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserName }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UserName }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UserName })
+        </td>
+    </tr>
+}
+
+</table>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

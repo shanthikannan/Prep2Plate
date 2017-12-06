@@ -31,7 +31,8 @@ namespace Prep2Plate.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         //DBset for Customers
-        public DbSet<Customers> Customer { get; set; }
+        //public DbSet<Customers> Customer { get; set; }
+        public DbSet<UserPreference> UserPreference{ get; set; }
         public DbSet<RecipeSearchResult> RecipeSearchResults { get; set; }
         public DbSet<UserRecipe> UserRecipes { get; set; }
         public DbSet<RecipeCalendarData> RecipeCalendar { get; set; }
