@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Prep2Plate.Context;
 using Prep2Plate.Models;
@@ -29,27 +28,37 @@ namespace Prep2Plate.Controllers
         // Function called before the Page is loaded
         public ActionResult Index(int? id)
         {
-            if (id.HasValue)
+            try
             {
-            } else { 
-                ClearDatabase();
+                if (id.HasValue)
+                {
+                }
+                else
+                {
+                    ClearDatabase();
+                }
+                return View(db.RecipeSearchResults.ToList());
             }
-            return View(db.RecipeSearchResults.ToList());
+            catch (Exception e)
+            {
+                return RedirectToAction("Error");
+            }
         }
 
         public ActionResult OnSearchRecipe(string searchRecipe)
         {
-            ClearDatabase();
-            string _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey + "&requirePictures=true&q=" + searchRecipe;
-            string httpResponse = CallYumlyApi(_requestUrl);
-            bool result = ParseSearchResultsResponseAndStoreInDb(httpResponse);
-            if (result)
+            try
             {
-                return RedirectToAction("Index", new { id = -1 });
+                ClearDatabase();
+                string _requestUrl = "api/recipes?_app_id=" + AppId + "&_app_key=" + AppKey +
+                                     "&requirePictures=true&q=" + searchRecipe;
+                string httpResponse = CallYumlyApi(_requestUrl);
+                ParseSearchResultsResponseAndStoreInDb(httpResponse);
+                return RedirectToAction("Index", new {id = -1});
             }
-            else
+            catch (Exception e)
             {
-                return RedirectToAction("About", "Home");
+                return RedirectToAction("Error");
             }
         }
 
@@ -60,33 +69,17 @@ namespace Prep2Plate.Controllers
                 client.BaseAddress = new Uri(Baseurl);
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                try
-                {
-                    //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
-                    var htttpResponse = client.GetAsync(requestUrl);
-                    htttpResponse.Wait();
-                    var htttpResult = htttpResponse.Result;
 
-                    //Checking the response is successful or not which is sent using HttpClient  
-                    if (!htttpResult.IsSuccessStatusCode)
-                    {
-                        return null;
-                    }
-                    return htttpResult.Content.ReadAsStringAsync().Result;
-                }
-                catch (Exception)
-                {
-                    return null;
-                }
+                //Sending request to find web api REST service resource GetAllEmployees using HttpClient  
+                var htttpResponse = client.GetAsync(requestUrl);
+                htttpResponse.Wait();
+                var htttpResult = htttpResponse.Result;
+                return htttpResult.Content.ReadAsStringAsync().Result;
             }
         }
 
-        private bool ParseSearchResultsResponseAndStoreInDb(string httpResponse)
+        private void ParseSearchResultsResponseAndStoreInDb(string httpResponse)
         {
-            if (httpResponse == null)
-            {
-                return false;
-            }
             JObject jObect = JObject.Parse(httpResponse);
             IList<JToken> jTokenList = jObect["matches"].Children().ToList();
                 
@@ -102,37 +95,39 @@ namespace Prep2Plate.Controllers
                 db.RecipeSearchResults.Add(recipeSearchResult);
             }
             db.SaveChanges();
-            return true;
         }
 
-        public bool ParseGetResultsResponseAndUpdateInDb(string httpResponse, RecipeSearchResult recipeSearchResult)
+        public void ParseGetResultsResponseAndUpdateInDb(string httpResponse, RecipeSearchResult recipeSearchResult)
         {
             JObject jObect = JObject.Parse(httpResponse);
             recipeSearchResult.Ingredients = jObect["ingredientLines"].ToString();
             recipeSearchResult.RecipeSourceUrl = jObect["source"]["sourceRecipeUrl"].ToString();
             db.SaveChanges();
-            return false;
         }
 
         public ActionResult Details(string id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                RecipeSearchResult recipeSearchResult = db.RecipeSearchResults.Find(id);
+                if (recipeSearchResult.Ingredients == null)
+                {
+                    string _requestUrl =
+                        "api/recipe/" + recipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
+                    string httpResponse = CallYumlyApi(_requestUrl);
+                    ParseGetResultsResponseAndUpdateInDb(httpResponse, recipeSearchResult);
+                }
+                return View(recipeSearchResult);
             }
+            catch (Exception e)
+            {
+                return RedirectToAction("Error");
+            }
+        }
 
-            RecipeSearchResult recipeSearchResult = db.RecipeSearchResults.Find(id);
-            if (recipeSearchResult == null)
-            {
-                return HttpNotFound();
-            }
-            if (recipeSearchResult.Ingredients == null)
-            {
-                string _requestUrl = "api/recipe/" + recipeSearchResult.Id + "?_app_id=" + AppId + "&_app_key=" + AppKey;
-                string httpResponse = CallYumlyApi(_requestUrl);
-                bool result = ParseGetResultsResponseAndUpdateInDb(httpResponse, recipeSearchResult);
-            }
-            return View(recipeSearchResult);
+        public ActionResult Error()
+        {
+            return View();
         }
 
         private void ClearDatabase()
@@ -154,24 +149,31 @@ namespace Prep2Plate.Controllers
         }
 
         public ActionResult SaveRecipe(String id)
-        { 
-            RecipeSearchResult result = db.RecipeSearchResults.Find(id);
-            UserRecipe userRecipe = db.UserRecipes.Find(result.Id, User.Identity.Name);
-            if (userRecipe == null)
+        {
+            try
             {
-                userRecipe = new UserRecipe();
-                userRecipe.RecipeId = result.Id;
-                userRecipe.RecipeName = result.RecipeName;
-                userRecipe.ImageUrl = result.ImageUrl;
-                userRecipe.RecipeSourceUrl = result.RecipeSourceUrl;
-                userRecipe.Ingredients = result.Ingredients;
+                RecipeSearchResult result = db.RecipeSearchResults.Find(id);
+                UserRecipe userRecipe = db.UserRecipes.Find(result.Id, User.Identity.Name);
+                if (userRecipe == null)
+                {
+                    userRecipe = new UserRecipe();
+                    userRecipe.RecipeId = result.Id;
+                    userRecipe.RecipeName = result.RecipeName;
+                    userRecipe.ImageUrl = result.ImageUrl;
+                    userRecipe.RecipeSourceUrl = result.RecipeSourceUrl;
+                    userRecipe.Ingredients = result.Ingredients;
 
-                userRecipe.UserName = User.Identity.Name;
+                    userRecipe.UserName = User.Identity.Name;
 
-                db.UserRecipes.Add(userRecipe);
-                db.SaveChanges();
+                    db.UserRecipes.Add(userRecipe);
+                    db.SaveChanges();
+                }
+                return RedirectToAction("Index", "UserRecipes");
             }
-            return RedirectToAction("Index","UserRecipes");
+            catch (Exception e)
+            {
+                return RedirectToAction("Error");
+            }
         }
 
         [HttpPost]
