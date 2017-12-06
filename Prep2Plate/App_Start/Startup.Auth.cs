@@ -55,13 +55,13 @@ namespace Prep2Plate
             //   consumerSecret: "");
 
             app.UseFacebookAuthentication(
-               appId: "1455049937865340",
-               appSecret: "f8246631b0a61bbe1c8b5cbaeedecbc7");
+               appId: "173109163426702",
+               appSecret: "b6c5416ebf2508a4bfb0202ac0b3905f");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "951026829975-q77t24i8m2d21he93jjp8e4n3n5enc1l.apps.googleusercontent.com",
-                ClientSecret = "r6ONBiD9L8YFqtjtcM4uspCX"
+                ClientId = "951026829975-0kd23ph4gsdgauedejvqkljl2dkib0ng.apps.googleusercontent.com",
+                ClientSecret = "POmtlUwEDNJGdBjhoI6SDiVV"
             });
         }
     }
