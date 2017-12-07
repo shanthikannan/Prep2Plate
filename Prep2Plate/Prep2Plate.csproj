@@ -195,6 +195,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\RecipeCalendarController.cs" />
     <Compile Include="Controllers\RecipeSearchController.cs" />
+    <Compile Include="Controllers\UserPreferencesController.cs" />
     <Compile Include="Controllers\UserRecipesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,6 +232,7 @@
     </Compile>
     <Compile Include="Migrations\UserMgmt\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\UserPreference.cs" />
     <Compile Include="Models\Customers.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -244,6 +246,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150.mdf" />
+    <Content Include="App_Data\aspnet-Prep2Plate-20171113091150_log.ldf">
+      <DependentUpon>aspnet-Prep2Plate-20171113091150.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\PREP2PLATE.mdf" />
     <Content Include="App_Data\PREP2PLATE_log.ldf">
       <DependentUpon>PREP2PLATE.mdf</DependentUpon>
@@ -312,7 +318,6 @@
     <Content Include="Views\UserRecipes\Details.cshtml" />
     <Content Include="Views\UserRecipes\Index.cshtml" />
     <Content Include="Views\RecipeCalendar\Index.cshtml" />
-    <Content Include="Views\RecipesSearch\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Login\" />
