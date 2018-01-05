@@ -28,21 +28,14 @@ namespace Prep2Plate.Controllers
         // Function called before the Page is loaded
         public ActionResult Index(int? id)
         {
-            try
+            if (id.HasValue)
             {
-                if (id.HasValue)
-                {
-                }
-                else
-                {
-                    ClearDatabase();
-                }
-                return View(db.RecipeSearchResults.ToList());
             }
-            catch (Exception e)
+            else
             {
-                return RedirectToAction("Error");
+                ClearDatabase();
             }
+            return View(db.RecipeSearchResults.ToList());
         }
 
         public ActionResult OnSearchRecipe(string searchRecipe)
@@ -58,8 +51,20 @@ namespace Prep2Plate.Controllers
             }
             catch (Exception e)
             {
+                TempData["ErrorMessage"] = GetErrorMessage(e);
                 return RedirectToAction("Error");
             }
+        }
+
+        private string GetErrorMessage(Exception e)
+        {
+            string errorMessage = e.Message;
+            while (e.InnerException != null)
+            {
+                e = e.InnerException;
+                errorMessage = errorMessage + "\n" + e.Message;
+            }
+            return errorMessage;
         }
 
         private string CallYumlyApi(string requestUrl)
@@ -121,6 +126,7 @@ namespace Prep2Plate.Controllers
             }
             catch (Exception e)
             {
+                TempData["ErrorMessage"] = GetErrorMessage(e);
                 return RedirectToAction("Error");
             }
         }
@@ -150,9 +156,9 @@ namespace Prep2Plate.Controllers
 
         public ActionResult SaveRecipe(String id)
         {
-            try
+            RecipeSearchResult result = db.RecipeSearchResults.Find(id);
+            if (result != null)
             {
-                RecipeSearchResult result = db.RecipeSearchResults.Find(id);
                 UserRecipe userRecipe = db.UserRecipes.Find(result.Id, User.Identity.Name);
                 if (userRecipe == null)
                 {
@@ -168,12 +174,8 @@ namespace Prep2Plate.Controllers
                     db.UserRecipes.Add(userRecipe);
                     db.SaveChanges();
                 }
-                return RedirectToAction("Index", "UserRecipes");
             }
-            catch (Exception e)
-            {
-                return RedirectToAction("Error");
-            }
+            return RedirectToAction("Index", "UserRecipes");
         }
     }
 }

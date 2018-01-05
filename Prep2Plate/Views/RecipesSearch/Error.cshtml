@@ -5,5 +5,17 @@
 }
 
 <h1 class="text-danger">Error.</h1>
-<h2 class="text-danger">An error occurred while processing your request.</h2>
+
+@{ var errorMessage = TempData["ErrorMessage"];
+    if (errorMessage != null) {
+        TempData["ErrorMessage"] = null;
+    <h2 class="text-danger">
+        @errorMessage
+    </h2>
+    }
+    else
+    {
+        <h2 class="text-danger">An error occurred while processing your request.</h2>
+    }
+}
 
