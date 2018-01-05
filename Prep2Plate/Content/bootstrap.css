@@ -274,9 +274,13 @@ table {
   h3 {
     page-break-after: avoid;
   }
-  .navbar {
+    .navbar {
+        background-color: #39870C;
+        // kind af green
+    }
+  /*.navbar {
     display: none;
-  }
+  }*/
   .table td,
   .table th {
     background-color: #fff !important;
@@ -4384,19 +4388,19 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #f8f8f8;
-  border-color: #e7e7e7;
+  background-color: #f0ad4e;
+  border-color: #b94a48;
 }
 
 .navbar-default .navbar-brand {
-  color: #777777;
+  color: #d9534f;
 }
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-brand:focus {
-  color: #5e5e5e;
-  background-color: transparent;
-}
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus {
+        color: #b94a48;
+        background-color: transparent;
+    }
 
 .navbar-default .navbar-text {
   color: #777777;
@@ -4501,22 +4505,22 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #bce8f1;
+  border-color: #5bc0de;
 }
 
 .navbar-inverse .navbar-brand {
-  color: #999999;
+  color: #5cb85c;
 }
 
 .navbar-inverse .navbar-brand:hover,
 .navbar-inverse .navbar-brand:focus {
-  color: #ffffff;
+  color: #eed3d7;
   background-color: transparent;
 }
 
 .navbar-inverse .navbar-text {
-  color: #999999;
+  color: #d9534f;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -4532,8 +4536,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-nav > .active > a,
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
-  color: #ffffff;
-  background-color: #080808;
+  color: #f0ad4e;
+  background-color: #d9534f;
 }
 
 .navbar-inverse .navbar-nav > .disabled > a,
